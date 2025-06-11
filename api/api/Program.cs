@@ -28,6 +28,7 @@ builder.Services.AddScoped<IEvenementRepository, EvenementRepository>();
 builder.Services.AddScoped<IEvenementService, EvenementService>();
 
 builder.Services.AddScoped<IVisiteurRepository, VisiteurRepository>();
+builder.Services.AddScoped<IVisiteurService, VisiteurService>();
 
 
 

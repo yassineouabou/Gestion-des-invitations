@@ -7,6 +7,6 @@
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
 
-        public ICollection<Evenement> evenements { get; set; } = new List<Evenement>();
+        public ICollection<Evenement> Evenements { get; set; } = new List<Evenement>();
     }
 }

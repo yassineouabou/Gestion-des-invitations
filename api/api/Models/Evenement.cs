@@ -9,7 +9,7 @@
         public string Lieu { get; set; } = string.Empty;
         public string Lien { get; set; } = string.Empty;
         public long? OrganisateurId { get; set; }
-        public Organisateur? organisateur { get; set; }
+        public Organisateur? Organisateur { get; set; }
         public ICollection<Verification> Verifications { get; set; } = new List<Verification>();
     }
 }

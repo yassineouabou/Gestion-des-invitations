@@ -41,7 +41,7 @@ namespace api.Repository
             return evenement;
         }
 
-        public async Task<Evenement?> update(long id, CreateEvenement createEvenement)
+        public async Task<Evenement?> update(CreateEvenement createEvenement,long id)
         {
             var evenement = await appDbContext.Evenements.FirstOrDefaultAsync(e => e.Id == id);
             if (evenement == null)

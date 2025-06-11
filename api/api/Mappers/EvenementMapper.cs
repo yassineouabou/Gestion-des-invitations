@@ -5,7 +5,7 @@ namespace api.Mappers
 {
     public static class EvenementMapper
     {
-        public static EvenementDto fromEvenement(Evenement evenement)
+        public static EvenementDto fromEvenement(this Evenement evenement)
         {
             return new EvenementDto
             {
@@ -19,7 +19,7 @@ namespace api.Mappers
             };
         }
 
-        public static Evenement toEvenementFromCreate(CreateEvenement createEvenement,long organisateurId)
+        public static Evenement toEvenementFromCreate(this CreateEvenement createEvenement,long organisateurId)
         {
             return new Evenement
             {

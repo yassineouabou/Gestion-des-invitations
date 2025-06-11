@@ -24,6 +24,8 @@ builder.Services.AddDbContext<AppDbContext>(
 builder.Services.AddScoped<IOrganisateurRepository, OrganisateurRepository>();
 builder.Services.AddScoped<IOrganisateurService, OrganisateurService>();
 
+builder.Services.AddScoped<IEvenementRepository, EvenementRepository>();
+
 
 
 var app = builder.Build();

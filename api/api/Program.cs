@@ -1,6 +1,8 @@
 using api.Data;
 using api.Repository;
 using api.Repository.Interfaces;
+using api.Services;
+using api.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +22,7 @@ builder.Services.AddDbContext<AppDbContext>(
 
 
 builder.Services.AddScoped<IOrganisateurRepository, OrganisateurRepository>();
+builder.Services.AddScoped<IOrganisateurService, OrganisateurService>();
 
 
 

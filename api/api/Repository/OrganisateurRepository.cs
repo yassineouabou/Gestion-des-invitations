@@ -43,7 +43,7 @@ namespace api.Repository
 
         public async Task<Organisateur?> GetOrganisateur(long organisateurId)
         {
-            return await appDbContext.organisateurs.FindAsync(organisateurId);
+            return await appDbContext.organisateurs.FirstOrDefaultAsync(o => o.Id == organisateurId);
         }
 
 
@@ -55,9 +55,7 @@ namespace api.Repository
             existingOrganisateur.Email = createOrganisateur.Email;
             existingOrganisateur.Nom = createOrganisateur.Nom;
             existingOrganisateur.Password = createOrganisateur.Password;
-
             await appDbContext.SaveChangesAsync();
-
             return existingOrganisateur;
       
         }

@@ -409,10 +409,6 @@
           "lieu": {
             "type": "string",
             "nullable": true
-          },
-          "lien": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false

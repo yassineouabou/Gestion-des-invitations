@@ -50,7 +50,6 @@ namespace api.Repository
                 return null;
             evenement.Titre = createEvenement.Titre;
             evenement.Lieu = createEvenement.Lieu;
-            evenement.Lien = createEvenement.Lien;
             evenement.DateEvenement = createEvenement.DateEvenement;
             await appDbContext.SaveChangesAsync();
             return evenement;

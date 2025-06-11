@@ -17,7 +17,9 @@ namespace api.Services
         public async Task<Evenement> createEvenement(CreateEvenement createEvenement, long organisateurId)
         {
             var evenement = createEvenement.toEvenementFromCreate(organisateurId);
+            evenement.Lien = $"http://localhost:4200/inscription?organisateurId={organisateurId}";
             return await evenementRepository.save(evenement);
+
         }
 
         public async Task<Evenement?> deleteEvenement(long id)
@@ -38,6 +40,7 @@ namespace api.Services
 
         public async Task<Evenement?> updateEvenement(CreateEvenement createEvenement, long id)
         {
+
             return await evenementRepository.update(createEvenement,id);
         }
 

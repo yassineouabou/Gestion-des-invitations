@@ -7,7 +7,8 @@ namespace api.Repository.Interfaces
     {
         Task<Evenement> save(Evenement evenement);
         Task<Evenement?> FindById(long id);
+        Task<List<Evenement>> findAll();
         Task<Evenement?> delete(long id);
-        Task<Evenement> update(long id, CreateEvenement createEvenement);
+        Task<Evenement?> update(long id, CreateEvenement createEvenement);
     }
 }

@@ -27,9 +27,8 @@ namespace api.Mappers
                 DateEvenement = createEvenement.DateEvenement,
                 Lieu = createEvenement.Lieu,
                 Lien = createEvenement.Lien,
-                Participantes = createEvenement.Participantes,
                 OrganisateurId = organisateurId
-            }
+            };
         }
     }
 }

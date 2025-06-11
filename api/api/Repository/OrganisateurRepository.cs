@@ -33,6 +33,7 @@ namespace api.Repository
             return organisateur;
         }
 
+        
 
         public async Task<List<Organisateur>> getAllOrganisateurs()
         {
@@ -59,5 +60,13 @@ namespace api.Repository
             return existingOrganisateur;
       
         }
+
+
+        public async Task<Organisateur?> findByEmail(string email)
+        {
+            return await appDbContext.organisateurs.FirstOrDefaultAsync(o => o.Email == email);
+        }
+
+
     }
 }

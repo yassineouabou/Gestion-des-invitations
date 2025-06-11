@@ -10,5 +10,6 @@ namespace api.Repository.Interfaces
         Task<Organisateur?> GetOrganisateur(long organisateurId);
         Task<Organisateur?> deleteOrganisateur(long organisateurId);
         Task<Organisateur?> updateOrganisateur(long id,CreateOrganisateur createOrganisateur);
+        Task<Organisateur?> findByEmail(string email);
     }
 }

@@ -23,16 +23,36 @@ namespace api.Controllers
         {
             var organisateur = await organisateurService.getOrganisateurById(id);
             if (organisateur == null)
-                return NotFound();
+                return NotFound("Organisateur Not Found !");
             return Ok(organisateur.fromOrganisateur());
         }
 
 
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<IActionResult> createOrganisateur([FromBody] CreateOrganisateur createOrganisateur)
         {
             var organisateur = await organisateurService.createOgranisateur(createOrganisateur);            
             return CreatedAtAction(nameof(getOrganisateur), new { Id = organisateur.Id }, organisateur.fromOrganisateur());
+        }
+
+
+        [HttpPost("login")]
+        public async Task<IActionResult> login([FromBody] LoginDto loginDto)
+        {
+            var organisateur = await organisateurService.login(loginDto);
+            if (organisateur == null)
+                return NotFound("Organisateur Not Found !");
+            return Ok(organisateur);
+        }
+
+        [HttpDelete]
+        [Route("{id:long}")]
+        public async Task<IActionResult> deleteOrganisateur([FromRoute] long id)
+        {
+            var organisateur = await organisateurService.deleteOrganisateur(id);
+            if (organisateur == null)
+                return NotFound("Organisateur Not Found !");
+            return Ok("Organisateur Deleted.");
         }
     }
 }

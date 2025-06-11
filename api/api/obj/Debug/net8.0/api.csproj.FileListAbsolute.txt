@@ -170,4 +170,5 @@ D:\FST\GI\Module_S4\C#\gestion invitation\api\api\obj\Debug\net8.0\refint\api.dl
 D:\FST\GI\Module_S4\C#\gestion invitation\api\api\obj\Debug\net8.0\api.pdb
 D:\FST\GI\Module_S4\C#\gestion invitation\api\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\FST\GI\Module_S4\C#\gestion invitation\api\api\obj\Debug\net8.0\ref\api.dll
+D:\FST\GI\Module_S4\C#\gestion invitation\api\api\bin\Debug\net8.0\BCrypt.Net-Next.dll
 D:\FST\GI\Module_S4\C#\gestion invitation\api\api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

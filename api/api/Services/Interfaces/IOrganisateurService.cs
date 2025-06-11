@@ -9,5 +9,7 @@ namespace api.Services.Interfaces
         Task<Organisateur> createOgranisateur(CreateOrganisateur createOrganisateur);
         Task<Organisateur?> getOrganisateurById(long id);
         Task<List<Organisateur>> getAllOrganisateur();
+        Task<Organisateur?> deleteOrganisateur(long id);
+        Task<Organisateur?> login(LoginDto loginDto);
     }
 }

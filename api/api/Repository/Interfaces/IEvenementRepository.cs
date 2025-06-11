@@ -10,5 +10,6 @@ namespace api.Repository.Interfaces
         Task<List<Evenement>> findAll();
         Task<Evenement?> delete(long id);
         Task<Evenement?> update(CreateEvenement createEvenement,long id);
+        Task<List<Evenement>> findAllByOrganisateurId(long id);
     }
 }

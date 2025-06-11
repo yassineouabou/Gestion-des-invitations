@@ -237,6 +237,55 @@
         }
       }
     },
+    "/api/Evenement/organisateur/{id}": {
+      "get": {
+        "tags": [
+          "Evenement"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Evenement"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Evenement"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Evenement"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Organisateur/{id}": {
       "get": {
         "tags": [

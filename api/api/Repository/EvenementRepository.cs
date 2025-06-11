@@ -29,6 +29,8 @@ namespace api.Repository
             return await appDbContext.Evenements.ToListAsync();
         }
 
+        
+
         public async Task<Evenement?> FindById(long id)
         {
             return await appDbContext.Evenements.FirstOrDefaultAsync(e=>e.Id==id);
@@ -52,6 +54,11 @@ namespace api.Repository
             evenement.DateEvenement = createEvenement.DateEvenement;
             await appDbContext.SaveChangesAsync();
             return evenement;
+        }
+
+        public async Task<List<Evenement>> findAllByOrganisateurId(long id)
+        {
+            return await appDbContext.Evenements.Where(e=>e.OrganisateurId==id).ToListAsync();
         }
     }
 }

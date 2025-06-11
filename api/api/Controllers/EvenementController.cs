@@ -71,5 +71,12 @@ namespace api.Controllers
         }
 
 
+        [HttpGet("organisateur/{id:long}")]
+        public async Task<ActionResult<List<Evenement>>> GetAllByOrganisateur([FromRoute] long id)
+        {
+            var evenements = await evenementService.evenementsByOrganisateurId(id);
+            return Ok(evenements.Select(e => e.fromEvenement()));
+        }
+
     }
 }

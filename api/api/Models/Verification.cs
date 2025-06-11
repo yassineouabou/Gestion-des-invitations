@@ -11,7 +11,6 @@ namespace api.Models
         public long? VisiteurId { get; set; }
         public long? EvenementId { get; set; }
 
-        // Navigation properties
         public Visiteur? Visiteur { get; set; }
         public Evenement? Evenement { get; set; } 
     }

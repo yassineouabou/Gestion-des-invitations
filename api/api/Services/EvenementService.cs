@@ -25,6 +25,7 @@ namespace api.Services
             return await evenementRepository.delete(id);
         }
 
+
         public async Task<List<Evenement>> findAllEvenements()
         {
             return await evenementRepository.findAll();
@@ -39,5 +40,12 @@ namespace api.Services
         {
             return await evenementRepository.update(createEvenement,id);
         }
+
+
+        public async Task<List<Evenement>> evenementsByOrganisateurId(long organisateurId)
+        {
+            return await evenementRepository.findAllByOrganisateurId(organisateurId);
+        }
+
     }
 }

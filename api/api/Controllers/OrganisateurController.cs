@@ -42,7 +42,7 @@ namespace api.Controllers
             var organisateur = await organisateurService.login(loginDto);
             if (organisateur == null)
                 return NotFound("Organisateur Not Found !");
-            return Ok(organisateur);
+            return Ok(organisateur.fromOrganisateur());
         }
 
         [HttpDelete]

@@ -25,7 +25,7 @@ builder.Services.AddScoped<IOrganisateurRepository, OrganisateurRepository>();
 builder.Services.AddScoped<IOrganisateurService, OrganisateurService>();
 
 builder.Services.AddScoped<IEvenementRepository, EvenementRepository>();
-
+builder.Services.AddScoped<IEvenementService, EvenementService>();
 
 
 var app = builder.Build();

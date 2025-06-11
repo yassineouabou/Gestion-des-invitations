@@ -5,6 +5,238 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Evenement": {
+      "get": {
+        "tags": [
+          "Evenement"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Evenement"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Evenement"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Evenement"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Evenement/{id}": {
+      "get": {
+        "tags": [
+          "Evenement"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Evenement"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Evenement"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Evenement"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Evenement"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEvenement"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEvenement"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEvenement"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Evenement"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Evenement"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Evenement"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Evenement"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Evenement"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Evenement"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Evenement"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Evenement/{organisateurId}": {
+      "post": {
+        "tags": [
+          "Evenement"
+        ],
+        "parameters": [
+          {
+            "name": "organisateurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEvenement"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEvenement"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEvenement"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Evenement"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Evenement"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Evenement"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Organisateur/{id}": {
       "get": {
         "tags": [
@@ -114,6 +346,28 @@
   },
   "components": {
     "schemas": {
+      "CreateEvenement": {
+        "type": "object",
+        "properties": {
+          "titre": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateEvenement": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lieu": {
+            "type": "string",
+            "nullable": true
+          },
+          "lien": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateOrganisateur": {
         "type": "object",
         "properties": {
@@ -132,6 +386,51 @@
         },
         "additionalProperties": false
       },
+      "Evenement": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "titre": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateEvenement": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lieu": {
+            "type": "string",
+            "nullable": true
+          },
+          "lien": {
+            "type": "string",
+            "nullable": true
+          },
+          "participantes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "organisateurId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "organisateur": {
+            "$ref": "#/components/schemas/Organisateur"
+          },
+          "verifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Verification"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "LoginDto": {
         "type": "object",
         "properties": {
@@ -141,6 +440,106 @@
           },
           "password": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Organisateur": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nom": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "evenements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Evenement"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StatutVerification": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Verification": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "etat": {
+            "$ref": "#/components/schemas/StatutVerification"
+          },
+          "dateVerif": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "visiteurId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "evenementId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "visiteur": {
+            "$ref": "#/components/schemas/Visiteur"
+          },
+          "evenement": {
+            "$ref": "#/components/schemas/Evenement"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Visiteur": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nom": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "verifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Verification"
+            },
             "nullable": true
           }
         },

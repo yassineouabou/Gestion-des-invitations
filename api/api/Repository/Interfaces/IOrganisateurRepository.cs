@@ -1,6 +1,7 @@
-﻿using api.Models;
+﻿using api.Dtos.Organisateur;
+using api.Models;
 
-namespace api.Repository
+namespace api.Repository.Interfaces
 {
     public interface IOrganisateurRepository
     {
@@ -8,6 +9,6 @@ namespace api.Repository
         Task<List<Organisateur>> getAllOrganisateurs();
         Task<Organisateur?> GetOrganisateur(long organisateurId);
         Task<Organisateur?> deleteOrganisateur(long organisateurId);
-        Task<Organisateur?> updateOrganisateur(long id);
+        Task<Organisateur?> updateOrganisateur(long id,CreateOrganisateur createOrganisateur);
     }
 }

@@ -14,12 +14,14 @@ namespace api.Repository
         {
             this.appDbContext = appDbContext;
         }
+
         public async Task<Organisateur> createOrganisateur(Organisateur organisateur)
         {
             await appDbContext.organisateurs.AddAsync(organisateur);
             await appDbContext.SaveChangesAsync();
             return organisateur;
         }
+
 
         public async Task<Organisateur?> deleteOrganisateur(long organisateurId)
         {
@@ -31,20 +33,33 @@ namespace api.Repository
             return organisateur;
         }
 
+
         public async Task<List<Organisateur>> getAllOrganisateurs()
         {
             return await appDbContext.organisateurs.ToListAsync();
 
         }
 
+
         public async Task<Organisateur?> GetOrganisateur(long organisateurId)
         {
             return await appDbContext.organisateurs.FindAsync(organisateurId);
         }
 
-        public Task<Organisateur?> updateOrganisateur(long id, CreateOrganisateur createOrganisateur)
+
+        public async Task<Organisateur?> updateOrganisateur(long id, CreateOrganisateur createOrganisateur)
         {
-            throw new NotImplementedException();
+            var existingOrganisateur = await appDbContext.organisateurs.FirstOrDefaultAsync(o => o.Id == id);
+            if ( existingOrganisateur== null)
+                return null;
+            existingOrganisateur.Email = createOrganisateur.Email;
+            existingOrganisateur.Nom = createOrganisateur.Nom;
+            existingOrganisateur.Password = createOrganisateur.Password;
+
+            await appDbContext.SaveChangesAsync();
+
+            return existingOrganisateur;
+      
         }
     }
 }

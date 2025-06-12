@@ -10,7 +10,7 @@ namespace api.Dtos.Verification
         public StatutVerification Etat { get; set; }
         public long? VisiteurId { get; set; }
         public long? EvenementId { get; set; }
-        public VisiteurDto? visiteurDto { get; set; }
-        public EvenementDto? evenementDto { get; set; }
+        public VisiteurDto? VisiteurDto { get; set; }
+        public EvenementDto? EvenementDto { get; set; }
     }
 }

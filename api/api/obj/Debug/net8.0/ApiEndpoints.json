@@ -222,5 +222,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.VisiteurController",
+    "Method": "addVisiteur",
+    "RelativePath": "api/Visiteur/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createVisiteur",
+        "Type": "api.Dtos.Visiteur.CreateVisiteur",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

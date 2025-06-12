@@ -5,6 +5,6 @@ namespace api.Services.Interfaces
 {
     public interface IVisiteurService
     {
-        Task<Visiteur> save(CreateVisiteur createVisiteur);
+        Task<Visiteur> save(CreateVisiteur createVisiteur, long evenementId);
     }
 }

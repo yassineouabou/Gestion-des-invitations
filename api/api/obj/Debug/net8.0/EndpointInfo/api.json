@@ -391,6 +391,48 @@
           }
         }
       }
+    },
+    "/api/Visiteur/{id}": {
+      "post": {
+        "tags": [
+          "Visiteur"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVisiteur"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVisiteur"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVisiteur"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -425,6 +467,20 @@
             "nullable": true
           },
           "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateVisiteur": {
+        "type": "object",
+        "properties": {
+          "nom": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
             "type": "string",
             "nullable": true
           }
@@ -537,14 +593,6 @@
           },
           "etat": {
             "$ref": "#/components/schemas/StatutVerification"
-          },
-          "dateVerif": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "token": {
-            "type": "string",
-            "nullable": true
           },
           "visiteurId": {
             "type": "integer",

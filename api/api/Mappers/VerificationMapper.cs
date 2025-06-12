@@ -13,8 +13,8 @@ namespace api.Mappers
                 Etat = verification.Etat,
                 VisiteurId = verification.VisiteurId,
                 EvenementId = verification.EvenementId,
-                visiteurDto = verification.Visiteur != null ? verification.Visiteur.fromVisiteur() : null,
-                evenementDto = verification.Evenement != null ? verification.Evenement.fromEvenement() : null
+                VisiteurDto = verification.Visiteur?.fromVisiteur(),
+                EvenementDto = verification.Evenement?.fromEvenement()
             };
         }
 

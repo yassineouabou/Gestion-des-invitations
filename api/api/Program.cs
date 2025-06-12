@@ -31,8 +31,9 @@ builder.Services.AddScoped<IVisiteurRepository, VisiteurRepository>();
 builder.Services.AddScoped<IVisiteurService, VisiteurService>();
 
 
-
 builder.Services.AddScoped<IVerificationRepository, VerificationRepository>();
+
+
 
 var app = builder.Build();
 

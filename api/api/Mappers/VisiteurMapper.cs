@@ -22,6 +22,21 @@ namespace api.Mappers
                 Nom = createVisiteur.Nom,
                 Email = createVisiteur.Email
             };
-        } 
+        }
+
+        public static VisiteurAvecEvenementsDto ToVisiteurAvecEvenementsDto(this Visiteur visiteur,long organisateurId)
+        {
+            return new VisiteurAvecEvenementsDto
+            {
+                Id = visiteur.Id,
+                Nom = visiteur.Nom,
+                Email = visiteur.Email,
+                Evenements = visiteur.Verifications
+                    .Where(v => v.Evenement != null && v.Evenement.OrganisateurId == organisateurId)
+                    .Select(v => v.Evenement!.fromEvenement())
+                    .DistinctBy(e => e.Id) // pour éviter les doublons si plusieurs vérifications pour le même événement
+                    .ToList()
+            };
+        }
     }
 }

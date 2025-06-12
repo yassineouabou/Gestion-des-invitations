@@ -392,14 +392,14 @@
         }
       }
     },
-    "/api/Visiteur/{id}": {
+    "/api/Visiteur/{evenementId}": {
       "post": {
         "tags": [
           "Visiteur"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "evenementId",
             "in": "path",
             "required": true,
             "schema": {
@@ -427,6 +427,29 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Visiteur/{organisateurId}": {
+      "get": {
+        "tags": [
+          "Visiteur"
+        ],
+        "parameters": [
+          {
+            "name": "organisateurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"

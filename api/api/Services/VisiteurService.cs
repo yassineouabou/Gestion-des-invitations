@@ -18,6 +18,12 @@ namespace api.Services
             this.visiteurRepository = visiteurRepository;
             this.verificationRepository = verificationRepository;
         }
+
+        public async Task<List<Visiteur>> getAllByOrganisateurId(long organisateurId)
+        {
+            return await visiteurRepository.getAllByOrganisateurId(organisateurId);
+        }
+
         public async Task<Visiteur> save(CreateVisiteur createVisiteur,long evenementId)
         {
             var visiteur = await visiteurRepository.save(createVisiteur.fromCreateVisiteur());

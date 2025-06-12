@@ -18,11 +18,19 @@ namespace api.Controllers
         }
 
         [HttpPost]
-        [Route("{id}")]
-        public async Task<IActionResult> addVisiteur([FromBody] CreateVisiteur createVisiteur, [FromRoute] long id)
+        [Route("{evenementId}")]
+        public async Task<IActionResult> addVisiteur([FromBody] CreateVisiteur createVisiteur, [FromRoute] long evenementId)
         {
-            var visiteur = await visiteurService.save(createVisiteur, id);
-            return Ok(visiteur);
+            var visiteur = await visiteurService.save(createVisiteur, evenementId);
+            return Ok(visiteur.fromVisiteur());
+        }
+
+        [HttpGet]
+        [Route("{organisateurId}")]
+        public async Task<IActionResult> getAll([FromRoute] long organisateurId)
+        {
+            var visiteurs = await visiteurService.getAllByOrganisateurId(organisateurId);
+            return Ok(visiteurs.Select(v=>v.ToVisiteurAvecEvenementsDto(organisateurId)));
         }
     }
 }

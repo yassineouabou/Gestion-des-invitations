@@ -226,7 +226,7 @@
   {
     "ContainingType": "api.Controllers.VisiteurController",
     "Method": "addVisiteur",
-    "RelativePath": "api/Visiteur/{id}",
+    "RelativePath": "api/Visiteur/{evenementId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -237,7 +237,23 @@
         "IsRequired": true
       },
       {
-        "Name": "id",
+        "Name": "evenementId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.VisiteurController",
+    "Method": "getAll",
+    "RelativePath": "api/Visiteur/{organisateurId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "organisateurId",
         "Type": "System.Int64",
         "IsRequired": true
       }

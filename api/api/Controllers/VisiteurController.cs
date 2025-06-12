@@ -25,7 +25,7 @@ namespace api.Controllers
             return Ok(visiteur.fromVisiteur());
         }
 
-        [HttpGet]
+        [HttpGet("organisateur")]
         [Route("{organisateurId}")]
         public async Task<IActionResult> getAll([FromRoute] long organisateurId)
         {

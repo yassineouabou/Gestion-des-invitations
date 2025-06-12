@@ -6,5 +6,7 @@ namespace api.Repository.Interfaces
     {
         Task<Visiteur> save(Visiteur visiteur);
         Task<List<Visiteur>> getAllByOrganisateurId(long organisateurId);
+
+        Task<Visiteur?> delete(long id);
     }
 }

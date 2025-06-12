@@ -14,6 +14,16 @@ namespace api.Repository
             this.appDbContext = appDbContext;
         }
 
+        public async Task<Visiteur?> delete(long id)
+        {
+            var visiteur = await appDbContext.Visiteurs.FirstOrDefaultAsync(v=>v.Id==id);
+            if (visiteur == null)
+                return null;
+            appDbContext.Visiteurs.Remove(visiteur);
+            await appDbContext.SaveChangesAsync();
+            return visiteur;
+        }
+
         public async Task<List<Visiteur>> getAllByOrganisateurId(long organisateurId)
         {
             var visiteurs = await appDbContext.Visiteurs

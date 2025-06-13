@@ -59,6 +59,7 @@ namespace api.Services
             if (verification == null)
                 return null;
             verification.Etat = StatutVerification.ACCEPTEE;
+            verification.Evenement.Participantes = +1;
             await verificationRepository.saveChange(verification);
             return verification;
         }

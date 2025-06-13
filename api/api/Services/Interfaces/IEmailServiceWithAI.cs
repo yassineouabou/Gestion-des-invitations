@@ -4,7 +4,7 @@ namespace api.Services.Interfaces
 {
     public interface IEmailServiceWithAI
     {
-        Task<bool> EnvoyerEmailAvecAI(Visiteur visiteur, Evenement evenement);
+        Task<bool> EnvoyerEmailAvecAI(Verification verification);
         Task<string> GenererContenuEmail(string userPrompt);
     }
 }

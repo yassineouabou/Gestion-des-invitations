@@ -31,7 +31,7 @@ namespace api.Services
             if (verification == null || verification.Visiteur == null || verification.Evenement == null)
                 return null;
 
-            var result = await emailServiceWithAI.EnvoyerEmailAvecAI(verification.Visiteur,verification.Evenement);
+            var result = await emailServiceWithAI.EnvoyerEmailAvecAI(verification);
 
             if (result)
             {

@@ -33,7 +33,7 @@ namespace api.Services
         {
             var visiteur = await visiteurRepository.save(createVisiteur.fromCreateVisiteur());
             var createVerification = new CreateVerification { Etat = Enums.StatutVerification.EN_ATTENTE };
-            await verificationRepository.save(createVerification.fromCreateVerification(visiteur.Id, evenementId));
+            await verificationRepository.save(createVerification.fromCreateVerification(evenementId, visiteur.Id));
             return visiteur;
         }
     }

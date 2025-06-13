@@ -4,6 +4,7 @@ using api.Repository.Interfaces;
 using api.Services;
 using api.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +18,12 @@ builder.Configuration
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());// Afficher enum string
+}); 
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -42,6 +48,8 @@ builder.Services.AddScoped<IVisiteurService, VisiteurService>();
 builder.Services.AddScoped<IVerificationRepository, VerificationRepository>();
 builder.Services.AddScoped<IVerificationService, VerificationService>();
 
+
+builder.Services.AddScoped<IEmailServiceWithAI, EmailServiceWithAI>();
 
 var app = builder.Build();
 

@@ -6,6 +6,10 @@ namespace api.Repository.Interfaces
     {
         Task<Verification> save(Verification verification);
         Task<List<Verification>> getAllByOrganisateurId(long organisateurId);
+
+        Task<Verification?> getById(long id);
+
+        Task<Verification> saveChange(Verification verification);
         
     }
 }

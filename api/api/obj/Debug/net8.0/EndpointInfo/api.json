@@ -441,6 +441,29 @@
         }
       }
     },
+    "/api/Verification/envoyer-email/{id}": {
+      "post": {
+        "tags": [
+          "Verification"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Visiteur/{evenementId}": {
       "post": {
         "tags": [
@@ -707,12 +730,12 @@
       },
       "StatutVerification": {
         "enum": [
-          0,
-          1,
-          2
+          "EN_ATTENTE",
+          "ACCEPTEE",
+          "ENVOYE",
+          "REFUSEE"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "Verification": {
         "type": "object",

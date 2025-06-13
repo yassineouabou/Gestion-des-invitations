@@ -28,5 +28,21 @@ namespace api.Controllers
 
             return Ok(verificationDtos);
         }
+
+        [HttpPost("envoyer-email/{id:long}")]
+        public async Task<IActionResult> EnvoyerEmail(long id)
+        {
+            var verification = await verificationService.sendEmail(id);
+
+            if (verification == null)
+                return NotFound("Vérification introuvable ou informations incomplètes.");
+
+            return Ok(new
+            {
+                Message = "E-mail envoyé avec succès",
+                VerificationId = verification.Id,
+                Statut = verification.Etat.ToString()
+            });
+        }
     }
 }

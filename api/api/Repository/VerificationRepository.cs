@@ -34,9 +34,18 @@ namespace api.Repository
 
         public async Task<Verification?> getById(long id)
         {
-            return await appDbContext.Verifications.FirstOrDefaultAsync(v => v.Id == id);
-           
+            return await appDbContext.Verifications
+                .Include(v => v.Evenement)
+                    .ThenInclude(e => e.Organisateur)
+                .Include(v => v.Visiteur)
+                .FirstOrDefaultAsync(v => v.Id == id);
+        }
 
+        public async Task<Verification> saveChange(Verification verification)
+        {
+            appDbContext.Verifications.Update(verification);
+            await appDbContext.SaveChangesAsync();
+            return verification;
         }
     }
 }

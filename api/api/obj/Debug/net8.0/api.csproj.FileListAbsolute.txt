@@ -171,4 +171,8 @@ D:\FST\GI\Module_S4\C#\gestion invitation\api\api\obj\Debug\net8.0\api.pdb
 D:\FST\GI\Module_S4\C#\gestion invitation\api\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\FST\GI\Module_S4\C#\gestion invitation\api\api\obj\Debug\net8.0\ref\api.dll
 D:\FST\GI\Module_S4\C#\gestion invitation\api\api\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\FST\GI\Module_S4\C#\gestion invitation\api\api\bin\Debug\net8.0\appsettings.Development.Local.json
+D:\FST\GI\Module_S4\C#\gestion invitation\api\api\bin\Debug\net8.0\Azure.AI.OpenAI.dll
+D:\FST\GI\Module_S4\C#\gestion invitation\api\api\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\FST\GI\Module_S4\C#\gestion invitation\api\api\bin\Debug\net8.0\OpenAI.dll
 D:\FST\GI\Module_S4\C#\gestion invitation\api\api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

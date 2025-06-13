@@ -6,5 +6,7 @@ namespace api.Services.Interfaces
     {
         Task<List<Verification>> getAllByOrganisateurId(long organisateurId);
         Task<Verification?> sendEmail(long id);
+        Task<Verification?> accepter(long id);
+        Task<Verification?> refuser(long id);
     }
 }

@@ -16,12 +16,15 @@ namespace api.Services
             this.verificationRepository = verificationRepository;
             this.emailServiceWithAI = emailServiceWithAI;
         }
+
+        
+
         public async Task<List<Verification>> getAllByOrganisateurId(long organisateurId)
         {
             return await verificationRepository.getAllByOrganisateurId(organisateurId);
         }
 
-
+        
         public async Task<Verification?> sendEmail(long id)
         {
             var verification = await verificationRepository.getById(id);
@@ -39,5 +42,26 @@ namespace api.Services
             return verification;
                 
         }
+
+        public async Task<Verification?> refuser(long id)
+        {
+            var verification = await verificationRepository.getById(id);
+            if (verification == null)
+                return null;
+            verification.Etat = StatutVerification.REFUSEE;
+            await verificationRepository.saveChange(verification);
+            return verification;
+        }
+
+        public async Task<Verification?> accepter(long id)
+        {
+            var verification = await verificationRepository.getById(id);
+            if (verification == null)
+                return null;
+            verification.Etat = StatutVerification.ACCEPTEE;
+            await verificationRepository.saveChange(verification);
+            return verification;
+        }
+
     }
 }

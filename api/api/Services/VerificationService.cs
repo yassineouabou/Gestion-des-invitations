@@ -17,5 +17,18 @@ namespace api.Services
         {
             return await verificationRepository.getAllByOrganisateurId(organisateurId);
         }
+
+        public async Task<Verification?> sendEmail(long id)
+        {
+            var visiteur = await verificationRepository.getById(id);
+            if(visiteur != null)
+            {
+                visiteur.Etat = Enums.StatutVerification.ENVOYE;
+                await verificationRepository.save(visiteur);
+
+            }
+            return visiteur;
+                
+        }
     }
 }

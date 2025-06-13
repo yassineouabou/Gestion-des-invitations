@@ -4,6 +4,7 @@
     {
         EN_ATTENTE,
         ACCEPTEE,
+        ENVOYE,
         REFUSEE
     }
 }

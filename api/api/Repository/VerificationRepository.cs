@@ -1,4 +1,5 @@
 ﻿using api.Data;
+using api.Enums;
 using api.Models;
 using api.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +30,13 @@ namespace api.Repository
             await appDbContext.Verifications.AddAsync(verification);
             await appDbContext.SaveChangesAsync();
             return verification;
+        }
+
+        public async Task<Verification?> getById(long id)
+        {
+            return await appDbContext.Verifications.FirstOrDefaultAsync(v => v.Id == id);
+           
+
         }
     }
 }

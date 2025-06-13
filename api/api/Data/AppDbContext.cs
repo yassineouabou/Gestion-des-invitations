@@ -24,12 +24,15 @@ namespace api.Data
             modelBuilder.Entity<Verification>()
                 .HasOne(v => v.Visiteur)
                 .WithMany(v => v.Verifications)
-                .HasForeignKey(v => v.VisiteurId);
+                .HasForeignKey(v => v.VisiteurId)
+                .OnDelete(DeleteBehavior.Cascade);
+
 
             modelBuilder.Entity<Verification>()
                 .HasOne(v => v.Evenement)
                 .WithMany(e => e.Verifications)
-                .HasForeignKey(v => v.EvenementId);
+                .HasForeignKey(v => v.EvenementId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
     }

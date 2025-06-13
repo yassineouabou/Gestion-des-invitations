@@ -434,7 +434,7 @@
         }
       }
     },
-    "/api/Visiteur/{organisateurId}": {
+    "/api/Visiteur/organisateurs/{organisateurId}": {
       "get": {
         "tags": [
           "Visiteur"
@@ -442,6 +442,29 @@
         "parameters": [
           {
             "name": "organisateurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Visiteur/{id}": {
+      "delete": {
+        "tags": [
+          "Visiteur"
+        ],
+        "parameters": [
+          {
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {

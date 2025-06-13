@@ -1,7 +1,6 @@
 ﻿using api.Dtos.Visiteur;
 using api.Mappers;
 using api.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
@@ -25,12 +24,22 @@ namespace api.Controllers
             return Ok(visiteur.fromVisiteur());
         }
 
-        [HttpGet("organisateur")]
-        [Route("{organisateurId}")]
-        public async Task<IActionResult> getAll([FromRoute] long organisateurId)
+        [HttpGet("organisateurs/{organisateurId}")]
+        public async Task<IActionResult> getAllByOrganisateurId([FromRoute] long organisateurId)
         {
             var visiteurs = await visiteurService.getAllByOrganisateurId(organisateurId);
             return Ok(visiteurs.Select(v=>v.ToVisiteurAvecEvenementsDto(organisateurId)));
         }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<IActionResult> deleteVisiteur([FromRoute] long id)
+        {
+            var visiteur = await visiteurService.deleteVisiteur(id);
+            if (visiteur == null)
+                return NotFound("Visiteur Not Found");
+            return Ok("Visiteur Deleted.");
+        }
+
     }
 }

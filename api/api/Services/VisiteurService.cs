@@ -19,6 +19,11 @@ namespace api.Services
             this.verificationRepository = verificationRepository;
         }
 
+        public async Task<Visiteur?> deleteVisiteur(long id)
+        {
+            return await visiteurRepository.delete(id);
+        }
+
         public async Task<List<Visiteur>> getAllByOrganisateurId(long organisateurId)
         {
             return await visiteurRepository.getAllByOrganisateurId(organisateurId);

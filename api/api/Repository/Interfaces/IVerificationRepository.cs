@@ -5,5 +5,7 @@ namespace api.Repository.Interfaces
     public interface IVerificationRepository
     {
         Task<Verification> save(Verification verification);
+        Task<List<Verification>> getAllByOrganisateurId(long organisateurId);
+        
     }
 }

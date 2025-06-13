@@ -7,7 +7,6 @@ namespace api.Services.Interfaces
     {
         Task<Visiteur> save(CreateVisiteur createVisiteur, long evenementId);
         Task<List<Visiteur>> getAllByOrganisateurId(long organisateurId);
-
         Task<Visiteur?> deleteVisiteur(long id);
     }
 }

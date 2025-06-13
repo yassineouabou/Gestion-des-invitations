@@ -44,5 +44,40 @@ namespace api.Controllers
                 Statut = verification.Etat.ToString()
             });
         }
+
+
+        [HttpGet("accepter/{id:long}")]
+        public async Task<IActionResult> Accepter(long id)
+        {
+            var verification = await verificationService.accepter(id);
+
+            if (verification == null)
+                return NotFound("Vérification non trouvée.");
+
+            return Ok(new
+            {
+                Message = "Invitation acceptée avec succès.",
+                VerificationId = verification.Id,
+                Statut = verification.Etat.ToString()
+            });
+        }
+
+        [HttpGet("refuser/{id:long}")]
+        public async Task<IActionResult> Refuser(long id)
+        {
+            var verification = await verificationService.refuser(id);
+
+            if (verification == null)
+                return NotFound("Vérification non trouvée.");
+
+            return Ok(new
+            {
+                Message = "Invitation refusée.",
+                VerificationId = verification.Id,
+                Statut = verification.Etat.ToString()
+            });
+        }
+
+
     }
 }

@@ -224,6 +224,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "api.Controllers.VerificationController",
+    "Method": "GetAllByOrganisateurId",
+    "RelativePath": "api/Verification/organisateur/{organisateurId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "organisateurId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[api.Dtos.Verification.VerificationDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "api.Controllers.VisiteurController",
     "Method": "addVisiteur",
     "RelativePath": "api/Visiteur/{evenementId}",

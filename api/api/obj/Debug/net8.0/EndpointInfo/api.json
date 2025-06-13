@@ -392,6 +392,55 @@
         }
       }
     },
+    "/api/Verification/organisateur/{organisateurId}": {
+      "get": {
+        "tags": [
+          "Verification"
+        ],
+        "parameters": [
+          {
+            "name": "organisateurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VerificationDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VerificationDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VerificationDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Visiteur/{evenementId}": {
       "post": {
         "tags": [
@@ -578,6 +627,41 @@
         },
         "additionalProperties": false
       },
+      "EvenementDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "titre": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateEvenement": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lieu": {
+            "type": "string",
+            "nullable": true
+          },
+          "lien": {
+            "type": "string",
+            "nullable": true
+          },
+          "participantes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "organisateurId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "LoginDto": {
         "type": "object",
         "properties": {
@@ -659,6 +743,35 @@
         },
         "additionalProperties": false
       },
+      "VerificationDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "etat": {
+            "$ref": "#/components/schemas/StatutVerification"
+          },
+          "visiteurId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "evenementId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "visiteurDto": {
+            "$ref": "#/components/schemas/VisiteurDto"
+          },
+          "evenementDto": {
+            "$ref": "#/components/schemas/EvenementDto"
+          }
+        },
+        "additionalProperties": false
+      },
       "Visiteur": {
         "type": "object",
         "properties": {
@@ -679,6 +792,24 @@
             "items": {
               "$ref": "#/components/schemas/Verification"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VisiteurDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nom": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
             "nullable": true
           }
         },

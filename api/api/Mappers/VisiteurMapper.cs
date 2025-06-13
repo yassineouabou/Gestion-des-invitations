@@ -32,9 +32,9 @@ namespace api.Mappers
                 Nom = visiteur.Nom,
                 Email = visiteur.Email,
                 Evenements = visiteur.Verifications
-                    .Where(v => v.Evenement != null && v.Evenement.OrganisateurId == organisateurId)
+                    .Where(v => v.Evenement != null)
                     .Select(v => v.Evenement!.fromEvenement())
-                    .DistinctBy(e => e.Id) // pour éviter les doublons si plusieurs vérifications pour le même événement
+                    .DistinctBy(e => e.Id) 
                     .ToList()
             };
         }

@@ -1,13 +1,21 @@
 ﻿using api.Models;
+using api.Repository.Interfaces;
 using api.Services.Interfaces;
 
 namespace api.Services
 {
     public class VerificationService : IVerificationService
     {
-        public Task<List<Verification>> getAllByOrganisateurId(long organisateurId)
+        private readonly IVerificationRepository verificationRepository;
+
+        public VerificationService(IVerificationRepository verificationRepository)
         {
-            throw new NotImplementedException();
+            this.verificationRepository = verificationRepository;
+            
+        }
+        public async Task<List<Verification>> getAllByOrganisateurId(long organisateurId)
+        {
+            return await verificationRepository.getAllByOrganisateurId(organisateurId);
         }
     }
 }

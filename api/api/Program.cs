@@ -32,7 +32,7 @@ builder.Services.AddScoped<IVisiteurService, VisiteurService>();
 
 
 builder.Services.AddScoped<IVerificationRepository, VerificationRepository>();
-
+builder.Services.AddScoped<IVerificationService, VerificationService>();
 
 
 var app = builder.Build();

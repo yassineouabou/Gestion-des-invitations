@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Route } from '@angular/router';
 import { OrganisateurDto } from '../../models/Organisateur.model';
 import { Login } from '../../models/Login.model';
+import { RegisterDto } from '../../models/Register.model';
 
 
 
@@ -27,5 +28,9 @@ export class AuthService {
   loadProfile(organisateur:any){
     this.isAuthenticated = true;
     this.organisateur = organisateur;
+  }
+
+  register(register:RegisterDto){
+    return this.http.post(this.api+"/register",register);
   }
 }

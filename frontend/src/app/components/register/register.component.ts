@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { RegisterDto } from '../../../models/Register.model';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-register',
@@ -11,8 +14,13 @@ import { Route, Router } from '@angular/router';
 export class RegisterComponent implements OnInit{
 
   registerForm!:FormGroup;
+  isIncorrect:boolean=false;
+  error:string="";
+
   constructor(private fb:FormBuilder,
-    private router:Router
+    private router:Router,
+    private authService:AuthService,
+    private messageService:MessageService
   ){}
 
   ngOnInit(): void {
@@ -26,9 +34,41 @@ export class RegisterComponent implements OnInit{
 
   handleRegister(){
     
+      const { password, confirmPassword, nom, email } = this.registerForm.value;
+
+      if (password !== confirmPassword) {
+        this.error="Password Incorrect !";
+        this.isIncorrect = true;
+
+        return;
+      }
+
+      const registerData: RegisterDto = {
+        nom,
+        email,
+        password
+      };
+
+      this.authService.register(registerData).subscribe({
+        next: () => {
+          this.isIncorrect = true;
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Inscription réussie !' });
+          
+          setTimeout(() => {
+            this.router.navigate(['/login']);
+          }, 2000);
+        },
+        error: (err) => {
+          console.error(err);
+          this.error = "Erreur lors de l'inscription.";
+          this.isIncorrect = true;
+        }
+  });
   }
 
   switchToLogin(){
     this.router.navigate(["/login"]);
   }
+
+  
 }

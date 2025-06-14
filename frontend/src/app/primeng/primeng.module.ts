@@ -11,7 +11,8 @@ const PRIMENG = [
   ButtonModule,
   InputTextModule,
   ToastModule,
-  ConfirmDialogModule
+  ConfirmDialogModule,
+  
   
 ]
 @NgModule({

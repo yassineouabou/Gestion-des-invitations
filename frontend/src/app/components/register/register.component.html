@@ -1,3 +1,5 @@
+<p-toast />
+
 <div class="container modern-login-container">
   <div class="login-card modern-login-card">
     <h3 class="text-center mb-4 modern-title">Créer un compte</h3>
@@ -50,7 +52,9 @@
           required
         />
       </div>
-
+       <div *ngIf="isIncorrect" class="mb-3 text-center">
+        <label class="form-label text-danger">{{error}}</label>
+      </div>
       <button class="btn modern-btn-primary w-100" type="submit">S'inscrire</button>
 
       <div class="text-center mt-3 text-muted">
@@ -58,7 +62,9 @@
           Déjà un compte ?
           <a class="link-hover" (click)="switchToLogin()">Connectez-vous</a>
         </small>
+        
       </div>
     </form>
   </div>
 </div>
+

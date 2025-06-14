@@ -3,6 +3,7 @@ import { environment } from '../environements/environement';
 import { HttpClient } from '@angular/common/http';
 import { Route } from '@angular/router';
 import { Login } from '../models/Login.Model';
+import { OrganisateurDto } from '../models/Organisateur.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AuthService {
   api:string=environment.apiUrl+"/organisateur";
 
   isAuthenticated:boolean=false;
-  organisateurId!:number;
+  organisateur!:OrganisateurDto;
 
   constructor(private http:HttpClient,
   ) { }
@@ -21,8 +22,8 @@ export class AuthService {
     return this.http.post(this.api+"/login",login);
   }
 
-  loadProfile(){
+  loadProfile(organisateur:OrganisateurDto){
     this.isAuthenticated = true;
-    
+    this.organisateur = organisateur;
   }
 }

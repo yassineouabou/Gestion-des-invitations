@@ -12,6 +12,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!:FormGroup;
+  isErreur:boolean = false;
 
   constructor(private fb:FormBuilder,
     private authService:AuthService
@@ -29,7 +30,12 @@ export class LoginComponent implements OnInit {
     this.authService.login(login).subscribe({
       next:(data)=>{
         this.authService.loadProfile(data);
+        this.isErreur = false;
         console.log(data);
+      },
+      error:(err)=>{
+        this.isErreur=true;
+        console.log(err.error);
       }
     })
   }

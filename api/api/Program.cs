@@ -8,6 +8,18 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Ajout d'une politique CORS nommée
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
 
 builder.Configuration
     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -52,6 +64,11 @@ builder.Services.AddScoped<IVerificationService, VerificationService>();
 builder.Services.AddScoped<IEmailServiceWithAI, EmailServiceWithAI>();
 
 var app = builder.Build();
+
+
+// Utilisation de la politique CORS
+app.UseCors("AllowAngularApp");
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

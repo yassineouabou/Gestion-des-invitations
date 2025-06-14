@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { environment } from '../environements/environement';
 import { HttpClient } from '@angular/common/http';
 import { Route } from '@angular/router';
-import { Login } from '../models/Login.Model';
+
 import { OrganisateurDto } from '../models/Organisateur.model';
+import { Login } from '../models/Login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class AuthService {
     return this.http.post(this.api+"/login",login);
   }
 
-  loadProfile(organisateur:OrganisateurDto){
+  loadProfile(organisateur:any){
     this.isAuthenticated = true;
     this.organisateur = organisateur;
   }

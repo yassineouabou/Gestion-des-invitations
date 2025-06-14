@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Login } from '../../models/Login.model';
+
 import { AuthService } from '../../services/auth.service';
+import { Login } from '../../../models/Login.model';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   handleLogin(){
-    let login:Login = this.loginForm.value;
+    let login:Login= this.loginForm.value;
     this.authService.login(login).subscribe({
       next:(data)=>{
         this.authService.loadProfile(data);

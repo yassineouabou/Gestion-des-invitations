@@ -1,0 +1,64 @@
+<div class="container modern-login-container">
+  <div class="login-card modern-login-card">
+    <h3 class="text-center mb-4 modern-title">Créer un compte</h3>
+
+    <form [formGroup]="registerForm" (ngSubmit)="handleRegister()">
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input
+          formControlName="nom"
+          type="text"
+          class="form-control"
+          id="nom"
+          placeholder="Votre nom complet"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Adresse Email</label>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="exemple@domain.com"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="******"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Vérifier mot de passe</label>
+        <input
+          formControlName="confirmPassword"
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          placeholder="******"
+          required
+        />
+      </div>
+
+      <button class="btn modern-btn-primary w-100" type="submit">S'inscrire</button>
+
+      <div class="text-center mt-3 text-muted">
+        <small>
+          Déjà un compte ?
+          <a class="link-hover" (click)="switchToLogin()">Connectez-vous</a>
+        </small>
+      </div>
+    </form>
+  </div>
+</div>

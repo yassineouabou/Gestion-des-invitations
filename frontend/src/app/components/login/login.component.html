@@ -1,28 +1,46 @@
-<div class="container">
-    <div class="login-card">
-      <h3 class="text-center mb-4">Connexion à votre espace</h3>
-      <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
-        <div class="mb-3">
-          <label for="email" class="form-label">Adresse Email</label>
-          <input formControlName="email" type="email" class="form-control" id="email" placeholder="exemple@domain.com" required />
-        </div>
+<div class="container modern-login-container">
+  <div class="login-card modern-login-card">
+    <!-- Image wrapper empty as per your markup -->
+    <div class="login-image-wrapper"></div>
 
-        <div class="mb-3">
-          <label for="password" class="form-label">Mot de passe</label>
-          <input formControlName="password" type="password" class="form-control" id="password" placeholder="******" required />
-        </div>
-        <div *ngIf="isErreur" class="mb-3 text-center text-danger">
-          <label for="password" class="form-label">Compte Invalide !</label>
-          
-        </div>
+    <h3 class="text-center mb-4 modern-title">Connexion à votre espace</h3>
 
-        <div class="d-grid">
-          <button type="submit" class="btn btn-primary" >Se connecter</button>
-        </div>
+    <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+      <div class="mb-3">
+        <label for="email" class="form-label">Adresse Email</label>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="exemple@domain.com"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="******"
+          required
+        />
+      </div>
+      <div *ngIf="isErreur" class="mb-3 text-center text-danger">
+        <span>Compte Invalide !</span>
+      </div>
 
-        <div class="text-center mt-3 text-muted">
-          <small>Mot de passe oublié ? <a href="#">Cliquez ici</a></small>
-        </div>
-      </form>
-    </div>
+      <button class="btn modern-btn-primary w-100" type="submit">Login</button>
+      <button class="btn modern-btn-secondary w-100 mt-2" type="button" (click)="switchToRegister()">Register</button>
+
+      <div class="text-center mt-3 text-muted">
+        <small>
+          Mot de passe oublié ?
+          <a class="link-hover" (click)="showDialog()">Cliquez ici</a>
+        </small>
+      </div>
+    </form>
   </div>
+</div>

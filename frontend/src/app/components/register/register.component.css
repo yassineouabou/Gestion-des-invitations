@@ -1,0 +1,127 @@
+body {
+  background: linear-gradient(135deg, #c3dafe, #e0e7ff);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modern-login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modern-login-card {
+  max-width: 600px;
+  width: 100%;
+  padding: 32px 28px 28px 28px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.modern-login-card:hover {
+  box-shadow: 0 12px 48px rgba(31, 38, 135, 0.5);
+}
+
+.modern-title {
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 28px;
+  letter-spacing: 0.05em;
+  font-size: 1.8rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #333;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.form-control {
+  width: 400px;
+  border: none;
+  border-bottom: 2px solid #e0e3eb;
+  background: transparent;
+  font-size: 1rem;
+  padding: 10px 4px;
+  border-radius: 0;
+  transition: border-color 0.3s ease;
+  box-shadow: none;
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: #a1a1aa;
+  font-style: italic;
+}
+
+.form-control:focus {
+  border-bottom-color: #4f46e5;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.4);
+  background: transparent;
+}
+
+.modern-btn-primary {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  padding: 12px 0;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+  transition: background 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.modern-btn-primary:hover {
+  background: linear-gradient(135deg, #4338ca, #2563eb);
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.5);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+.link-hover {
+  cursor: pointer;
+  color: #4f46e5;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link-hover:hover {
+  color: #4338ca;
+  text-decoration: underline;
+}
+
+/* Error message styling */
+.mb-3.text-center.text-danger {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #e11d48;
+  margin-top: 12px;
+}

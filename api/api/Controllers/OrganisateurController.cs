@@ -1,6 +1,7 @@
 ﻿using api.Dtos.Organisateur;
 using api.Mappers;
 using api.Repository.Interfaces;
+using api.Services;
 using api.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -54,5 +55,21 @@ namespace api.Controllers
                 return NotFound("Organisateur Not Found !");
             return Ok("Organisateur Deleted.");
         }
+
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(long id, [FromBody] CreateOrganisateur createOrganisateur)
+        {
+            
+            var updatedOrganisateur = await organisateurService.update(id, createOrganisateur);
+
+            if (updatedOrganisateur == null)
+            {
+                return NotFound($"Organisateur avec l'id {id} non trouvé.");
+            }
+
+            return Ok(updatedOrganisateur);
+        }
+
     }
 }

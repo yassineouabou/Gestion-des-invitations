@@ -11,5 +11,7 @@ namespace api.Services.Interfaces
         Task<List<Organisateur>> getAllOrganisateur();
         Task<Organisateur?> deleteOrganisateur(long id);
         Task<Organisateur?> login(LoginDto loginDto);
+
+        Task<Organisateur?> update(long id, CreateOrganisateur createOrganisateur);
     }
 }

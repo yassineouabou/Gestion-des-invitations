@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthService } from '../../services/auth.service';
 import { Login } from '../../../models/Login.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,9 +15,11 @@ import { Login } from '../../../models/Login.model';
 export class LoginComponent implements OnInit {
   loginForm!:FormGroup;
   isErreur:boolean = false;
+  visible: boolean = false;
 
   constructor(private fb:FormBuilder,
-    private authService:AuthService
+    private authService:AuthService,
+    private router:Router
   ){}
 
   ngOnInit(): void {
@@ -39,5 +42,13 @@ export class LoginComponent implements OnInit {
         console.log(err.error);
       }
     })
+  }
+
+   showDialog() {
+        this.visible = true;
+    }
+
+  switchToRegister(){
+    this.router.navigate(["/register"]);
   }
 }

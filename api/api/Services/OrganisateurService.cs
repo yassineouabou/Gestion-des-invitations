@@ -54,5 +54,10 @@ namespace api.Services
 
             }
         }
+
+        public async Task<Organisateur?> update(long id, CreateOrganisateur createOrganisateur)
+        {
+            return await organisateurRepository.updateOrganisateur(id,createOrganisateur);
+        }
     }
 }

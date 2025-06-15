@@ -648,6 +648,10 @@
             "type": "string",
             "nullable": true
           },
+          "categorie": {
+            "type": "string",
+            "nullable": true
+          },
           "dateEvenement": {
             "type": "string",
             "format": "date-time"
@@ -718,6 +722,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "categorie": {
+            "type": "string",
+            "nullable": true
+          },
           "organisateurId": {
             "type": "integer",
             "format": "int64",
@@ -762,6 +770,10 @@
           "participantes": {
             "type": "integer",
             "format": "int32"
+          },
+          "categorie": {
+            "type": "string",
+            "nullable": true
           },
           "organisateurId": {
             "type": "integer",

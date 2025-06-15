@@ -347,10 +347,10 @@ D:\FST\GI\Module_S4\CS\gestion invitation\api\api\obj\Debug\net8.0\staticwebasse
 D:\FST\GI\Module_S4\CS\gestion invitation\api\api\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.api.props
 D:\FST\GI\Module_S4\CS\gestion invitation\api\api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.api.props
 D:\FST\GI\Module_S4\CS\gestion invitation\api\api\obj\Debug\net8.0\staticwebassets.pack.json
-D:\FST\GI\Module_S4\CS\gestion invitation\api\api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\FST\GI\Module_S4\CS\gestion invitation\api\api\obj\Debug\net8.0\api.csproj.Up2Date
 D:\FST\GI\Module_S4\CS\gestion invitation\api\api\obj\Debug\net8.0\api.dll
 D:\FST\GI\Module_S4\CS\gestion invitation\api\api\obj\Debug\net8.0\refint\api.dll
 D:\FST\GI\Module_S4\CS\gestion invitation\api\api\obj\Debug\net8.0\api.pdb
 D:\FST\GI\Module_S4\CS\gestion invitation\api\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\FST\GI\Module_S4\CS\gestion invitation\api\api\obj\Debug\net8.0\ref\api.dll
+D:\FST\GI\Module_S4\CS\gestion invitation\api\api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

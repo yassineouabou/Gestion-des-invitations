@@ -5,7 +5,7 @@
 namespace api.Migrations
 {
     /// <inheritdoc />
-    public partial class cascade : Migration
+    public partial class updateEvent : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,6 +17,13 @@ namespace api.Migrations
             migrationBuilder.DropForeignKey(
                 name: "FK_Verifications_Visiteurs_VisiteurId",
                 table: "Verifications");
+
+            migrationBuilder.AddColumn<string>(
+                name: "Categorie",
+                table: "Evenements",
+                type: "nvarchar(max)",
+                nullable: false,
+                defaultValue: "");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Verifications_Evenements_EvenementId",
@@ -45,6 +52,10 @@ namespace api.Migrations
             migrationBuilder.DropForeignKey(
                 name: "FK_Verifications_Visiteurs_VisiteurId",
                 table: "Verifications");
+
+            migrationBuilder.DropColumn(
+                name: "Categorie",
+                table: "Evenements");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Verifications_Evenements_EvenementId",

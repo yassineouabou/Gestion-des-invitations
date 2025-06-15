@@ -1,4 +1,6 @@
-﻿namespace api.Models
+﻿using api.Enums;
+
+namespace api.Models
 {
     public class Evenement
     {
@@ -8,6 +10,7 @@
         public string Lieu { get; set; } = string.Empty;
         public string Lien { get; set; } = string.Empty;
         public int Participantes { get; set; } 
+        public string Categorie { get; set; } = string.Empty;
         public long? OrganisateurId { get; set; }
         public Organisateur? Organisateur { get; set; }
         public ICollection<Verification> Verifications { get; set; } = new List<Verification>();

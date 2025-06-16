@@ -94,43 +94,62 @@
   [(visible)]="visible"
   [style]="{ width: '30rem' }"
 >
-  
 
-  <div class="space-y-4 pt-2">
-    <div class="flex items-center gap-4">
-      <label for="username" class="font-semibold w-24">Username</label>
-      <input pInputText id="username" class="flex-1 p-2 border rounded" autocomplete="off" />
+  <form [formGroup]="evenementForm" (ngSubmit)="onSubmit()">
+      <div class="space-y-4 pt-2">
+
+      <div class="flex items-center gap-4">
+        <label for="title" class="font-semibold w-24">Titre</label>
+        <input formControlName="titre" pInputText id="title" class="flex-1 p-2 border rounded" autocomplete="off" />
+      </div>
+
+      <div class="flex items-center gap-4">
+        <label for="category" class="font-semibold w-24">Catégorie</label>
+        <input formControlName="categorie" pInputText id="category" class="flex-1 p-2 border rounded" autocomplete="off" />
+      </div>
+
+      <div class="flex items-center gap-4">
+        <label for="date" class="font-semibold w-24">Date</label>
+        <input formControlName="dateEvenement" type="date" id="date" class="flex-1 p-2 border rounded" />
+      </div>
+
+      <div class="flex items-center gap-4">
+        <label for="lieu" class="font-semibold w-24">Lieu</label>
+        <input formControlName="lieu" pInputText id="lieu" class="flex-1 p-2 border rounded" autocomplete="off" />
+      </div>
     </div>
 
-    <div class="flex items-center gap-4">
-      <label for="email" class="font-semibold w-24">Email</label>
-      <input pInputText id="email" class="flex-1 p-2 border rounded" autocomplete="off" />
+    <div class="flex justify-end gap-2 mt-6">
+      <p-button  class="bg-slate-100 hover:bg-slate-300 font-bold py-2 px-4 rounded-full" label="Cancel" severity="secondary" (onClick)="visible = false" />
+      <p-button type="submit" [disabled]="evenementForm.invalid" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" label="Save" />
     </div>
-
-    <div class="flex items-center gap-4">
-      <label for="title" class="font-semibold w-24">Titre</label>
-      <input pInputText id="title" class="flex-1 p-2 border rounded" autocomplete="off" />
-    </div>
-
-    <div class="flex items-center gap-4">
-      <label for="category" class="font-semibold w-24">Catégorie</label>
-      <input pInputText id="category" class="flex-1 p-2 border rounded" autocomplete="off" />
-    </div>
-
-    <div class="flex items-center gap-4">
-      <label for="date" class="font-semibold w-24">Date</label>
-      <input type="date" id="date" class="flex-1 p-2 border rounded" />
-    </div>
-
-    <div class="flex items-center gap-4">
-      <label for="lieu" class="font-semibold w-24">Lieu</label>
-      <input pInputText id="lieu" class="flex-1 p-2 border rounded" autocomplete="off" />
-    </div>
-  </div>
-
-  <div class="flex justify-end gap-2 mt-6">
-    <p-button class="bg-slate-100 hover:bg-slate-300 font-bold py-2 px-4 rounded-full" label="Cancel" severity="secondary" (onClick)="visible = false" />
-    <p-button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" label="Save" />
-  </div>
+  </form>
 </p-dialog>
 
+
+<p-dialog 
+  header="Lien d'inscription" 
+  [modal]="true" 
+  [(visible)]="visibleLien" 
+  [style]="{ width: '30rem' }"
+>
+  <div class="p-4 space-y-4">
+    <p class="text-gray-700 text-base">Voici votre lien d'inscription à cet événement :</p>
+    
+    <input 
+      pInputText 
+      [value]="registrationLink" 
+      readonly 
+      class="w-full mt-2 mb-3 p-2 border rounded-md text-sm text-gray-800 bg-gray-100"
+    />
+    
+    <div class="flex justify-end">
+      <p-button 
+        label="Fermer" 
+        (onClick)="visibleLien = false" 
+        styleClass="p-button-secondary"
+        class="!px-4 !py-2 text-sm"
+      />
+    </div>
+  </div>
+</p-dialog>

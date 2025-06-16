@@ -63,6 +63,7 @@ export class RegisterComponent implements OnInit{
           console.error(err);
           this.error = "Erreur lors de l'inscription.";
           this.isIncorrect = true;
+          this.registerForm.reset();
         }
   });
   }

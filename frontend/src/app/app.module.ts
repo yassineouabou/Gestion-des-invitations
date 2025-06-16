@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { FileText, LucideAngularModule,Home, Calendar, Users, House, Mail, UserRound,LayoutGrid,ChartPie,CalendarRange } from 'lucide-angular';
+import { FileText, LucideAngularModule,Home, Calendar, Users, House, Mail, UserRound,LayoutGrid,ChartPie,CalendarRange,LogOut  } from 'lucide-angular';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EvenementComponent } from './components/evenement/evenement.component';
 import { HomeComponent } from './components/home/home.component';
@@ -32,7 +32,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    LucideAngularModule.pick({ Home, Calendar, Mail, Users, FileText,House, UserRound,LayoutGrid,ChartPie,CalendarRange }),
+    LucideAngularModule.pick({ Home, Calendar, Mail, Users, FileText,House, UserRound,LayoutGrid,ChartPie,CalendarRange,LogOut  }),
     PrimengModule,
   ],
   providers: [],

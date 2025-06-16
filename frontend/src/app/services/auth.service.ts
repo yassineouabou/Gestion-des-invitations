@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { environment } from '../environements/environement';
 import { HttpClient } from '@angular/common/http';
 import { Route } from '@angular/router';
-import { OrganisateurDto } from '../../models/Organisateur.model';
-import { Login } from '../../models/Login.model';
-import { RegisterDto } from '../../models/Register.model';
+import { OrganisateurDto } from '../models/Organisateur.model';
+import { Login } from '../models/Login.model';
+import { RegisterDto } from '../models/Register.model';
+
 
 
 

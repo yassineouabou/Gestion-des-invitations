@@ -1,70 +1,95 @@
+
 <p-toast />
 
-<div class="container modern-login-container">
-  <div class="login-card modern-login-card">
-    <h3 class="text-center mb-4 modern-title">Créer un compte</h3>
+<div class="bg-gray-50 dark:bg-gray-900 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md animate-fade-in">
+        <div class="bg-white dark:bg-gray-800 shadow-xl rounded-lg overflow-hidden">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-primary-500 to-primary-700 p-6 text-center">
+                <h1 class="text-2xl font-bold text-white">Create Account</h1>
+                <p class="text-primary-100 mt-1">Join us today</p>
+            </div>
+            
+            <!-- Form -->
+            <form [formGroup]="registerForm" (ngSubmit)="handleRegister()" id="registerForm" class="p-6 space-y-6">
+                <div class="space-y-4">
+                    <!-- Name Field -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-gray-400"></i>
+                            </div>
+                            <input formControlName="nom" type="text" id="name" name="name" required
+                                class="pl-10 w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                                placeholder="John Doe">
+                        </div>
+                    </div>
+                    
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input  formControlName="email" type="email" id="email" name="email" required
+                                class="pl-10 w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                                placeholder="you@example.com">
+                        </div>
+                    </div>
+                    
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input  formControlName="password" type="password" id="password" name="password" required minlength="8"
+                                class="pl-10 w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                                placeholder="••••••••">
+                            <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <i class="fas fa-eye text-gray-400 hover:text-primary-500"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Confirm Password Field -->
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Confirm Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input formControlName="confirmPassword" type="password" id="confirmPassword" name="confirmPassword" required minlength="8"
+                                class="pl-10 w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                                placeholder="••••••••">
+                            <button type="button" id="toggleConfirmPassword" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <i class="fas fa-eye text-gray-400 hover:text-primary-500"></i>
+                            </button>
+                        </div>
+                        <p id="password-match" class="mt-1 text-xs hidden"><i class="fas fa-check mr-1"></i><span>Passwords match</span></p>
+                        <p id="password-mismatch" class="mt-1 text-xs hidden text-red-500 dark:text-red-400"><i class="fas fa-times mr-1"></i><span>Passwords don't match</span></p>
+                    </div>
 
-    <form [formGroup]="registerForm" (ngSubmit)="handleRegister()">
-      <div class="mb-3">
-        <label for="nom" class="form-label">Nom</label>
-        <input
-          formControlName="nom"
-          type="text"
-          class="form-control"
-          id="nom"
-          placeholder="Votre nom complet"
-          required
-        />
-      </div>
-
-      <div class="mb-3">
-        <label for="email" class="form-label">Adresse Email</label>
-        <input
-          formControlName="email"
-          type="email"
-          class="form-control"
-          id="email"
-          placeholder="exemple@domain.com"
-          required
-        />
-      </div>
-
-      <div class="mb-3">
-        <label for="password" class="form-label">Mot de passe</label>
-        <input
-          formControlName="password"
-          type="password"
-          class="form-control"
-          id="password"
-          placeholder="******"
-          required
-        />
-      </div>
-
-      <div class="mb-3">
-        <label for="confirmPassword" class="form-label">Vérifier mot de passe</label>
-        <input
-          formControlName="confirmPassword"
-          type="password"
-          class="form-control"
-          id="confirmPassword"
-          placeholder="******"
-          required
-        />
-      </div>
-       <div *ngIf="isIncorrect" class="mb-3 text-center">
-        <label class="form-label text-danger">{{error}}</label>
-      </div>
-      <button class="btn modern-btn-primary w-100" type="submit">S'inscrire</button>
-
-      <div class="text-center mt-3 text-muted">
-        <small>
-          Déjà un compte ?
-          <a class="link-hover" (click)="switchToLogin()">Connectez-vous</a>
-        </small>
-        
-      </div>
-    </form>
+                </div>
+                
+                <div>
+                    <button type="submit" id="submitBtn"
+                        class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200">
+                        Create Account
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Footer -->
+            <div class="px-6 py-4 bg-gray-50 dark:bg-gray-700 text-center">
+                <p class="text-sm text-gray-600 dark:text-gray-300">
+                    Already have an account? 
+                    <a href="#" id="loginLink" class="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">Sign in</a>
+                </p>
+            </div>
+        </div>
+    </div>
   </div>
-</div>
-

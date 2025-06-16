@@ -5,6 +5,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const PRIMENG = [
   DialogModule,
@@ -18,7 +19,8 @@ const PRIMENG = [
 @NgModule({
   declarations: [],
   imports: [
-    ...PRIMENG
+    ...PRIMENG,
+
   ],
   exports:[
     ...PRIMENG,

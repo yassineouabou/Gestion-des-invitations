@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthService } from '../../services/auth.service';
-import { Login } from '../../../models/Login.model';
+
 import { Router } from '@angular/router';
+import { Login } from '../../models/Login.model';
+import { MessageService } from 'primeng/api';
 
 
 @Component({
@@ -14,11 +16,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm!:FormGroup;
-  isErreur:boolean = false;
   visible: boolean = false;
 
   constructor(private fb:FormBuilder,
     private authService:AuthService,
+     private messageService:MessageService,
     private router:Router
   ){}
 
@@ -34,12 +36,11 @@ export class LoginComponent implements OnInit {
     this.authService.login(login).subscribe({
       next:(data)=>{
         this.authService.loadProfile(data);
-        this.isErreur = false;
-        console.log(data);
+        this.router.navigate(["/home/dashboard"]);
       },
       error:(err)=>{
-        this.isErreur=true;
-        console.log(err.error);
+        
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: err.error });
       }
     })
   }

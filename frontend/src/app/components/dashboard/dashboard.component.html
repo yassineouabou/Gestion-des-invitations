@@ -1,0 +1,64 @@
+<div class="space-y-8">
+  <!-- Welcome Message -->
+      <div class="bg-gradient-to-r from-primary-500 to-primary-600 text-white p-6 rounded-xl shadow-lg animate-fade-in">
+        <h1 class="text-2xl md:text-3xl font-bold mb-1">Bienvenue, {{organisateur.nom}} 👋</h1>
+        <p class="text-sm md:text-base opacity-90">Voici un aperçu de votre activité récente.</p>
+      </div>
+
+  <!-- Stat Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="bg-white p-5 rounded-xl shadow hover:shadow-md transition">
+      <div class="flex items-center space-x-4">
+        <div class="bg-blue-100 p-3 rounded-full">
+          <lucide-icon name="Calendar" class="w-6 h-6 text-blue-600"></lucide-icon>
+        </div>
+        <div>
+          <h3 class="text-gray-600 text-sm">Événements</h3>
+          <p class="text-lg font-semibold text-gray-900">12</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow hover:shadow-md transition">
+      <div class="flex items-center space-x-4">
+        <div class="bg-green-100 p-3 rounded-full">
+          <lucide-icon name="Mail" class="w-6 h-6 text-green-600"></lucide-icon>
+        </div>
+        <div>
+          <h3 class="text-gray-600 text-sm">Invitations</h3>
+          <p class="text-lg font-semibold text-gray-900">45</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow hover:shadow-md transition">
+      <div class="flex items-center space-x-4">
+        <div class="bg-yellow-100 p-3 rounded-full">
+          <lucide-icon name="Users" class="w-6 h-6 text-yellow-600"></lucide-icon>
+        </div>
+        <div>
+          <h3 class="text-gray-600 text-sm">Visiteurs</h3>
+          <p class="text-lg font-semibold text-gray-900">76</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow hover:shadow-md transition">
+      <div class="flex items-center space-x-4">
+        <div class="bg-red-100 p-3 rounded-full">
+          <lucide-icon name="FileText" class="w-6 h-6 text-red-600"></lucide-icon>
+        </div>
+        <div>
+          <h3 class="text-gray-600 text-sm">Reports</h3>
+          <p class="text-lg font-semibold text-gray-900">5</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional Section for Charts or Recent Activity -->
+  <div class="bg-white p-6 rounded-xl shadow">
+    <h2 class="text-xl font-semibold mb-4">Activité récente</h2>
+    <p class="text-gray-500 text-sm">Aucune activité récente pour le moment.</p>
+  </div>
+</div>

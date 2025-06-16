@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { RegisterDto } from '../../../models/Register.model';
+
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { RegisterDto } from '../../models/Register.model';
 
 @Component({
   selector: 'app-register',

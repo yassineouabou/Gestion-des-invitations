@@ -52,4 +52,11 @@ export class AuthService {
   this.router.navigate(["/login"]);
   }
 
+   getOrganisateurId(): number | null {
+    if (this.isAuthenticated) {
+      return this.organisateur?.id || null;
+    }
+    return null;
+  }
+
 }

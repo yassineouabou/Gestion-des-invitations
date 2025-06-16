@@ -5,6 +5,7 @@
     <button
       class="bg-blue-600 text-white px-5 py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 font-semibold"
       type="button"
+      (click)="showDialog()"
     >
       + Créer un événement
     </button>
@@ -26,6 +27,9 @@
           </th>
           <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700 tracking-wide uppercase select-none">
             Participants
+          </th>
+          <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700 tracking-wide uppercase select-none">
+            Catégorie
           </th>
           <th class="px-6 py-4 text-center text-sm font-semibold text-gray-700 tracking-wide uppercase select-none">
             Action
@@ -82,3 +86,51 @@
     </table>
   </div>
 </div>
+
+
+<p-dialog
+  header="Ajouter un Evenement"
+  [modal]="true"
+  [(visible)]="visible"
+  [style]="{ width: '30rem' }"
+>
+  
+
+  <div class="space-y-4 pt-2">
+    <div class="flex items-center gap-4">
+      <label for="username" class="font-semibold w-24">Username</label>
+      <input pInputText id="username" class="flex-1 p-2 border rounded" autocomplete="off" />
+    </div>
+
+    <div class="flex items-center gap-4">
+      <label for="email" class="font-semibold w-24">Email</label>
+      <input pInputText id="email" class="flex-1 p-2 border rounded" autocomplete="off" />
+    </div>
+
+    <div class="flex items-center gap-4">
+      <label for="title" class="font-semibold w-24">Titre</label>
+      <input pInputText id="title" class="flex-1 p-2 border rounded" autocomplete="off" />
+    </div>
+
+    <div class="flex items-center gap-4">
+      <label for="category" class="font-semibold w-24">Catégorie</label>
+      <input pInputText id="category" class="flex-1 p-2 border rounded" autocomplete="off" />
+    </div>
+
+    <div class="flex items-center gap-4">
+      <label for="date" class="font-semibold w-24">Date</label>
+      <input type="date" id="date" class="flex-1 p-2 border rounded" />
+    </div>
+
+    <div class="flex items-center gap-4">
+      <label for="lieu" class="font-semibold w-24">Lieu</label>
+      <input pInputText id="lieu" class="flex-1 p-2 border rounded" autocomplete="off" />
+    </div>
+  </div>
+
+  <div class="flex justify-end gap-2 mt-6">
+    <p-button class="bg-slate-100 hover:bg-slate-300 font-bold py-2 px-4 rounded-full" label="Cancel" severity="secondary" (onClick)="visible = false" />
+    <p-button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" label="Save" />
+  </div>
+</p-dialog>
+

@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './evenement.component.css'
 })
 export class EvenementComponent {
+  visible:boolean=false;
 
+  showDialog(){
+    this.visible=true;
+  }
 }

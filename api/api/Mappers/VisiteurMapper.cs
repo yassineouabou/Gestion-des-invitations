@@ -20,7 +20,8 @@ namespace api.Mappers
             return new Visiteur
             {
                 Nom = createVisiteur.Nom,
-                Email = createVisiteur.Email
+                Email = createVisiteur.Email,
+                Phone = createVisiteur.Phone
             };
         }
 
@@ -31,6 +32,7 @@ namespace api.Mappers
                 Id = visiteur.Id,
                 Nom = visiteur.Nom,
                 Email = visiteur.Email,
+                Phone = visiteur.Phone,
                 Evenements = visiteur.Verifications
                     .Where(v => v.Evenement != null)
                     .Select(v => v.Evenement!.fromEvenement())

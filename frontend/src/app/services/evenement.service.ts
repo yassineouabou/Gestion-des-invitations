@@ -23,6 +23,10 @@ export class EvenementService {
     return this.http.post<EvenementDto>(this.api+"/"+organisateurId,evenement);
   }
 
+  getEvenementById(id:number):Observable<EvenementDto>{
+    return this.http.get<EvenementDto>(this.api+"/"+id);
+  }
+
   getAllEvenement():Observable<EvenementDto[]>{
     const organisateurId = this.authService.getOrganisateurId();
      return this.http.get<EvenementDto[]>(this.api+"/organisateur/"+organisateurId);

@@ -5,8 +5,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
-
-
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
@@ -26,14 +25,16 @@ const PRIMENG = [
   MultiSelectModule, 
   ProgressBarModule,
   TableModule,
-    DropdownModule,
-    MultiSelectModule,
-    ProgressBarModule,
-    TagModule,
-    SliderModule,
-    ButtonModule,
-    InputTextModule,
-    CalendarModule
+  DropdownModule,
+  MultiSelectModule,
+  ProgressBarModule,
+  TagModule,
+  SliderModule,
+  ButtonModule,
+  InputTextModule,
+  CalendarModule,
+  ConfirmPopupModule
+  
   
 ]
 @NgModule({

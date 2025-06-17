@@ -28,4 +28,12 @@ export class EvenementService {
      return this.http.get<EvenementDto[]>(this.api+"/organisateur/"+organisateurId);
   }
 
+  updateEvenement(evenement:EvenementDto,evenementId:number):Observable<void>{
+    return this.http.put<void>(this.api+"/"+evenementId,evenement);
+  }
+
+  deleteEvenement(evenementId:number):Observable<void>{
+    return this.http.delete<void>(this.api+"/"+evenementId);
+  }
+
 }

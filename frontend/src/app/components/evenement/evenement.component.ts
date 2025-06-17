@@ -14,7 +14,7 @@ export class EvenementComponent implements OnInit {
   visible:boolean=false;
   visibleLien:boolean=false;
   evenementForm!:FormGroup;
-  savedOrganisateur!:EvenementDto;
+  savedEvenement!:EvenementDto;
   registrationLink: string = '';
   evenements:EvenementDto[]=[];
   
@@ -78,7 +78,7 @@ export class EvenementComponent implements OnInit {
             this.visible = false;
             this.messageService.add({ severity: 'success', summary: 'Success', detail: "mise à jour de l'événement réussie" });
             this.selectedEvent = null;
-            this.evenementForm.reset();
+            
           },
           error: err => {
             console.error("Erreur lors de la mise à jour", err);
@@ -88,19 +88,19 @@ export class EvenementComponent implements OnInit {
         // create
         this.evenementService.addEvent(evenementData).subscribe({
           next: (data) => {
-            this.savedOrganisateur = data;
-            this.registrationLink = this.savedOrganisateur.lien;
+            this.savedEvenement = data;
+            this.registrationLink = this.savedEvenement.lien;
             this.visible = false;
             this.visibleLien = true;
             this.loadEvenements();
             this.messageService.add({ severity: 'success', summary: 'Success', detail: ' événement ajouté avec succès' });
-            this.evenementForm.reset();
           },
           error: (err) => {
             console.error("Erreur lors de l'ajout", err);
           }
         });
       }
+      this.evenementForm.reset();
     }
   }
 

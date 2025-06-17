@@ -592,7 +592,7 @@
         }
       }
     },
-    "/api/Visiteur/organisateurs/{organisateurId}": {
+    "/api/Visiteur/organisateur/{organisateurId}": {
       "get": {
         "tags": [
           "Visiteur"

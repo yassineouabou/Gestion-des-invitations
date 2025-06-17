@@ -1,9 +1,9 @@
 import { EvenementDto } from "./Evenement.model";
 
 export interface VisiteurDto {
-    id?:         number;
+    id:         number;
     nom:        string;
     email:      string;
     phone:      string;
-    evenements?: EvenementDto[];
+    evenements: EvenementDto[];
 }

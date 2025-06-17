@@ -1,4 +1,5 @@
 ﻿using api.Data;
+using api.Dtos.Visiteur;
 using api.Models;
 using api.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -34,11 +35,19 @@ namespace api.Repository
             return visiteurs;
         }
 
-        public async Task<Visiteur> save(Visiteur visiteur)
+        public async Task<Visiteur> save(Visiteur addedVisiteur)
         {
-            await appDbContext.Visiteurs.AddAsync(visiteur);
+            var existingVisiteur = await appDbContext.Visiteurs
+                .FirstOrDefaultAsync(v => v.Email == addedVisiteur.Email);
+
+            if (existingVisiteur != null)
+            {
+                return existingVisiteur;
+            }
+
+            await appDbContext.Visiteurs.AddAsync(addedVisiteur);
             await appDbContext.SaveChangesAsync();
-            return visiteur;
+            return addedVisiteur;
         }
     }
 }

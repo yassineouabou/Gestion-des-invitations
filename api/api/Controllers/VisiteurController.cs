@@ -24,7 +24,7 @@ namespace api.Controllers
             return Ok(visiteur.fromVisiteur());
         }
 
-        [HttpGet("organisateurs/{organisateurId}")]
+        [HttpGet("organisateur/{organisateurId}")]
         public async Task<IActionResult> getAllByOrganisateurId([FromRoute] long organisateurId)
         {
             var visiteurs = await visiteurService.getAllByOrganisateurId(organisateurId);
@@ -38,7 +38,7 @@ namespace api.Controllers
             var visiteur = await visiteurService.deleteVisiteur(id);
             if (visiteur == null)
                 return NotFound("Visiteur Not Found");
-            return Ok("Visiteur Deleted.");
+            return Ok(visiteur.fromVisiteur());
         }
 
     }

@@ -358,7 +358,7 @@
   {
     "ContainingType": "api.Controllers.VisiteurController",
     "Method": "getAllByOrganisateurId",
-    "RelativePath": "api/Visiteur/organisateurs/{organisateurId}",
+    "RelativePath": "api/Visiteur/organisateur/{organisateurId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

@@ -5,6 +5,7 @@ import { EvenementDto } from '../../models/Evenement.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VisiteurDto } from '../../models/Visiteur.model';
 import { VisiteurService } from '../../services/visiteur.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-inscription',
@@ -20,7 +21,8 @@ export class InscriptionComponent implements OnInit{
   constructor(private route: ActivatedRoute,
     private evenementService:EvenementService,
     private fb: FormBuilder,
-    private visiteurService:VisiteurService
+    private visiteurService:VisiteurService,
+    private messageService:MessageService
   ) {}
 
   ngOnInit() {
@@ -51,11 +53,14 @@ export class InscriptionComponent implements OnInit{
       this.visiteurService.addVisiteur(inscriptionData,this.evenementId).subscribe({
         next:(data)=>{
           console.log("added");
+          
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: "invitation envoyée avec succès" });
         },
         error:(err)=>{
-          console.log(err.error);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: err.error });
         }
       });
+      this.inscriptionForm.reset();
     }
   }
 

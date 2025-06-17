@@ -5,7 +5,15 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { ReactiveFormsModule } from '@angular/forms';
+
+
+import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { TagModule } from 'primeng/tag';
+import { SliderModule } from 'primeng/slider';
+import { CalendarModule } from 'primeng/calendar';
 
 const PRIMENG = [
   DialogModule,
@@ -13,7 +21,19 @@ const PRIMENG = [
   InputTextModule,
   ToastModule,
   ConfirmDialogModule,
-  
+  TagModule, 
+  DropdownModule, 
+  MultiSelectModule, 
+  ProgressBarModule,
+  TableModule,
+    DropdownModule,
+    MultiSelectModule,
+    ProgressBarModule,
+    TagModule,
+    SliderModule,
+    ButtonModule,
+    InputTextModule,
+    CalendarModule
   
 ]
 @NgModule({

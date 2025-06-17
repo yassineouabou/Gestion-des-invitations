@@ -10,7 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrimengModule } from './primeng/primeng.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
@@ -32,6 +32,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    FormsModule,
     LucideAngularModule.pick({ Home, Calendar, Mail, Users, FileText,House, UserRound,LayoutGrid,ChartPie,CalendarRange,LogOut  }),
     PrimengModule,
   ],

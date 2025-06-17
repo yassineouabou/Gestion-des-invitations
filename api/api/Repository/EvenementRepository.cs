@@ -40,6 +40,11 @@ namespace api.Repository
         {
             await appDbContext.Evenements.AddAsync(evenement);
             await appDbContext.SaveChangesAsync();
+
+            evenement.Lien = $"http://localhost:4200/inscription?evenementId={evenement.Id}";
+            appDbContext.Evenements.Update(evenement);
+            await appDbContext.SaveChangesAsync();
+
             return evenement;
         }
 
@@ -57,7 +62,10 @@ namespace api.Repository
 
         public async Task<List<Evenement>> findAllByOrganisateurId(long id)
         {
-            return await appDbContext.Evenements.Where(e=>e.OrganisateurId==id).ToListAsync();
+            return await appDbContext.Evenements
+                .Where(e=>e.OrganisateurId==id)
+                .OrderByDescending(e => e.Id)
+                .ToListAsync();
         }
     }
 }

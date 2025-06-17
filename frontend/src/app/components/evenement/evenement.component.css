@@ -1,0 +1,41 @@
+::ng-deep .custom-table {
+      @apply rounded-lg overflow-hidden border border-gray-200;
+    }
+    
+    ::ng-deep .custom-table .p-datatable-thead > tr > th {
+      @apply border-none;
+    }
+    
+    ::ng-deep .custom-table .p-datatable-tbody > tr > td {
+      @apply border-l-0 border-r-0;
+    }
+    
+    ::ng-deep .custom-table .p-paginator {
+      @apply bg-gray-50 border-t border-gray-200 px-6 py-3;
+    }
+    
+    ::ng-deep .custom-table .p-paginator .p-paginator-pages .p-paginator-page {
+      @apply rounded-md mx-1;
+    }
+    
+    ::ng-deep .custom-table .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+      @apply bg-blue-600 text-white;
+    }
+    
+    ::ng-deep .p-column-filter-menu {
+      @apply  hover:border hover:bg-gray-200 rounded-lg;
+    }
+
+
+    ::ng-deep .p-paginator .p-paginator-pages .p-paginator-page {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  min-width: 2rem;
+  height: 2rem;
+}
+::ng-deep .p-paginator .p-paginator-element {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  min-width: 2rem;
+  height: 2rem;
+}

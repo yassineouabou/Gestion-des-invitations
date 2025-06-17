@@ -15,6 +15,10 @@ export class EvenementComponent implements OnInit {
   evenementForm!:FormGroup;
   savedOrganisateur!:EvenementDto;
   registrationLink: string = '';
+  evenements:EvenementDto[]=[];
+
+  searchValue: string = '';
+  loading: boolean = false;
 
   constructor(private fb:FormBuilder,
     private evenementService:EvenementService
@@ -26,7 +30,24 @@ export class EvenementComponent implements OnInit {
     categorie: ['', Validators.required],
     dateEvenement: ['', Validators.required],
     lieu: ['', Validators.required]
-    })    
+    });
+    
+    this.loadEvenements();
+  }
+
+  loadEvenements(): void {
+    this.loading = true;
+    this.evenementService.getAllEvenement().subscribe({
+      next: (data) => {
+        this.evenements = data;
+        this.loading = false;
+        console.log(this.evenements);
+      },
+      error: (err) => {
+        console.error('Erreur de chargement des événements :', err);
+        this.loading = false;
+      }
+    });
   }
 
   showDialog(){
@@ -43,6 +64,7 @@ export class EvenementComponent implements OnInit {
         this.visible = false;
         this.evenementForm.reset();
         this.visibleLien = true;
+        this.loadEvenements();
         console.log(this.savedOrganisateur);
 
       },
@@ -51,5 +73,15 @@ export class EvenementComponent implements OnInit {
       }
     });
   }
+  }
+
+  clear(table: any): void {
+    table.clear();
+    this.searchValue = '';
+  }
+
+  showLink(link:string){
+    this.registrationLink = link;
+    this.visibleLien = true;
   }
 }

@@ -13,6 +13,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { TagModule } from 'primeng/tag';
 import { SliderModule } from 'primeng/slider';
 import { CalendarModule } from 'primeng/calendar';
+import { TabViewModule } from 'primeng/tabview';
 
 const PRIMENG = [
   DialogModule,
@@ -33,7 +34,8 @@ const PRIMENG = [
   ButtonModule,
   InputTextModule,
   CalendarModule,
-  ConfirmPopupModule
+  ConfirmPopupModule,
+  TabViewModule
   
   
 ]

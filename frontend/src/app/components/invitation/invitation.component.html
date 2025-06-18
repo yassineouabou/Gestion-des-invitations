@@ -1,1 +1,243 @@
-<p>invitation works!</p>
+<div class="card">
+    <p-tabView>
+        <!-- Pending Invitations Tab -->
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <div class="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-t-md shadow-sm">
+                    <i class="pi pi-clock text-yellow-600 dark:text-yellow-400"></i>
+                    <span class="text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap">
+                        En attente de vérification
+                    </span>
+                </div>
+            </ng-template>
+
+            <!-- Pending Tab Content -->
+            <div id="pending" class="tab-content active mt-6">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-800">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Nom du visiteur</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Email</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Événement</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Date demande</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Statut</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                            <!-- Pending Rows -->
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">Jean Dupont</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">jean.dupontemail.com</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">Conférence Tech</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">15/06/2025</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
+                                        En attente
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex space-x-2">
+                                        <button class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded hover:bg-green-200 dark:hover:bg-green-800 transition-colors text-sm font-medium">
+                                            <i class="pi pi-check mr-1"></i>
+                                            Accepter
+                                        </button>
+                                        <button class="px-3 py-1 bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 rounded hover:bg-red-200 dark:hover:bg-red-800 transition-colors text-sm font-medium">
+                                            <i class="pi pi-times mr-1"></i>
+                                            Rejeter
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">Sophie Bernard</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">sophie.bernardompany.fr</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">Workshop Innovation</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">16/06/2025</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
+                                        En attente
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex space-x-2">
+                                        <button class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded hover:bg-green-200 dark:hover:bg-green-800 transition-colors text-sm font-medium">
+                                            <i class="pi pi-check mr-1"></i>
+                                            Accepter
+                                        </button>
+                                        <button class="px-3 py-1 bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 rounded hover:bg-red-200 dark:hover:bg-red-800 transition-colors text-sm font-medium">
+                                            <i class="pi pi-times mr-1"></i>
+                                            Rejeter
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </p-tabPanel>
+
+        <!-- Accepted Invitations Tab -->
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <div class="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-t-md shadow-sm">
+                    <i class="pi pi-check-circle text-green-600 dark:text-green-400"></i>
+                    <span class="text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap">
+                        Invitations acceptées
+                    </span>
+                </div>
+            </ng-template>
+
+            <div id="accepted" class="tab-content mt-6">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-800">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Nom du visiteur</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Email</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Événement</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Date acceptation</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                            <!-- Accepted Rows -->
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">Marie Martin</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">marie.martinentreprise.com</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">Salon Professionnel</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">14/06/2025</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                                        Accepté
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">Thomas Leroy</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">t.leroystartup.fr</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">Conférence Tech</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">13/06/2025</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                                        Accepté
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </p-tabPanel>
+
+        <!-- Rejected Invitations Tab -->
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <div class="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-t-md shadow-sm">
+                    <i class="pi pi-times-circle text-red-600 dark:text-red-400"></i>
+                    <span class="text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap">
+                        Invitations rejetées
+                    </span>
+                </div>
+            </ng-template>
+
+            <div id="rejected" class="tab-content mt-6">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-800">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Nom du visiteur</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Email</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Événement</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Date rejet</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                            <!-- Rejected Rows -->
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">Pierre Dubois</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">pierre.duboismail.com</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">Conférence Tech</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">12/06/2025</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
+                                        Rejeté
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">Lucie Moreau</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">l.moreauagency.fr</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">Workshop Innovation</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">11/06/2025</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
+                                        Rejeté
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </p-tabPanel>
+
+
+        <!-- email send Tab -->
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <div class="flex items-center gap-2 px-4 py-2  bg-gray-100 dark:bg-gray-800 rounded-t-md shadow-sm">
+                    <i class="pi pi-envelope text-blue-600 dark:text-blue-400"></i>
+                    <span class="text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap">
+                        Invitations Envoyer
+                    </span>
+                </div>
+            </ng-template>
+
+            <div id="rejected" class="tab-content mt-6">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-800">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Nom du visiteur</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Email</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Événement</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Date rejet</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                            <!-- Rejected Rows -->
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">Pierre Dubois</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">pierre.duboismail.com</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">Conférence Tech</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">12/06/2025</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
+                                        Rejeté
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">Lucie Moreau</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">l.moreauagency.fr</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">Workshop Innovation</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">11/06/2025</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
+                                        Rejeté
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </p-tabPanel>
+
+    </p-tabView>
+</div>

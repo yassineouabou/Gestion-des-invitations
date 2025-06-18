@@ -52,14 +52,14 @@
     </ng-template>
 
     <ng-template pTemplate="body" let-visiteur>
-      <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors duration-150">
+      <tr class=" border-b border-gray-200 hover:bg-gray-50 transition-colors duration-150">
         <td class="px-4 py-3 font-semibold text-gray-900">{{ visiteur.nom }}</td>
         <td class="px-4 py-3 text-gray-700">{{ visiteur.email }}</td>
         <td class="px-4 py-3 text-gray-700">{{ visiteur.phone }}</td>
         <td class="px-4 py-3 text-gray-700">
           <ul class="list-disc pl-4 space-y-1" *ngIf="visiteur.evenements?.length">
             <li class="list-none" *ngFor="let e of visiteur.evenements">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
               {{ e.titre }}
             </span>
             </li>
@@ -107,6 +107,6 @@
   icon="pi pi-exclamation-triangle"
   acceptLabel="Oui"
   rejectLabel="Non"
-  acceptButtonStyleClass="p-button-danger"
+  acceptButtonStyleClass="p-button-danger px-4"
   rejectButtonStyleClass="p-button-text">
 </p-confirmDialog>

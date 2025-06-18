@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { VisiteurComponent } from './components/visiteur/visiteur.component';
+import { InvitationComponent } from './components/invitation/invitation.component';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
     {path:"dashboard",component:DashboardComponent},
     {path:"evenement",component:EvenementComponent},
     {path:"visiteur",component:VisiteurComponent},
+    {path:"invitations",component:InvitationComponent}
 
   ]},
   {path:"",redirectTo:"/login",pathMatch:"full"}

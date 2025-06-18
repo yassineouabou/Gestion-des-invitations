@@ -15,6 +15,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { VisiteurComponent } from './components/visiteur/visiteur.component';
+import { InvitationComponent } from './components/invitation/invitation.component';
+
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { VisiteurComponent } from './components/visiteur/visiteur.component';
     LoginComponent,
     RegisterComponent,
     InscriptionComponent,
-    VisiteurComponent
+    VisiteurComponent,
+    InvitationComponent
 
   ],
   imports: [

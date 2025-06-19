@@ -18,7 +18,7 @@ import { VisiteurComponent } from './components/visiteur/visiteur.component';
 import { InvitationComponent } from './components/invitation/invitation.component';
 import { ResponseComponent } from './components/response/response.component';
 
-
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { ResponseComponent } from './components/response/response.component';
     InscriptionComponent,
     VisiteurComponent,
     InvitationComponent,
-    ResponseComponent
+    ResponseComponent,
+    
 
   ],
   imports: [
@@ -44,6 +45,7 @@ import { ResponseComponent } from './components/response/response.component';
     FormsModule,
     LucideAngularModule.pick({ Home, Calendar, Mail, Users, FileText,House, UserRound,LayoutGrid,ChartPie,CalendarRange,LogOut  }),
     PrimengModule,
+    QRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

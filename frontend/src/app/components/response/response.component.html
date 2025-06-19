@@ -1,88 +1,147 @@
 <div *ngIf="invitation">
-    <div *ngIf="invitation.etat.toLocaleLowerCase()==='acceptee'" class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex items-center justify-center p-4">
-        <div class="w-full max-w-sm bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform transition-all hover:shadow-2xl">
-            <!-- Header -->
-            <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-4 text-white">
-                <div class="flex justify-between items-center">
-                    <h2 class="text-xl font-bold">Visitor Access</h2>
-                    <button id="theme-toggle" class="p-1 rounded-full hover:bg-white/20 transition">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="p-6">
-                <!-- Visitor Info -->
-                <div class="mb-6">
-                    <h3 class="text-2xl font-bold text-center mb-2">{{invitation.visiteurDto.nom}}</h3>
-                    <div class="flex flex-col space-y-3">
-                        <div class="flex items-center">
-                            <i class="fas fa-phone text-blue-500 mr-2"></i>
-                            <span>{{invitation.visiteurDto.phone}}</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope text-blue-500 mr-2"></i>
-                            <span>{{invitation.visiteurDto.email}}</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- QR Code -->
-                <div class="flex justify-center mb-6">
-                    <div class="bg-white dark:bg-gray-700 p-2 rounded-xl shadow-md hover:shadow-lg transition-all">
-                        <img src="https://quickchart.io/qr?text=VISITOR%20ID%3A%20VD123456&size=200" 
-                            alt="QR Code" 
-                            class="w-40 h-40 rounded-lg border border-gray-200 dark:border-gray-600"
-                            loading="lazy">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer -->
-            <div class="bg-gray-50 dark:bg-gray-700 p-4 text-center text-xs text-gray-500 dark:text-gray-400">
-                <p>Valid until: {{invitation.evenementDto.dateEvenement | date:'dd/MM/yyy'}}</p>
-                <p>© 2024 Yassine Ouabou</p>
-            </div>
-        </div>
-    </div>
-
-
-    <div *ngIf="invitation.etat.toLocaleLowerCase()==='rejetee'"  class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex items-center justify-center p-4">
-        <div class="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform transition-all hover:shadow-2xl">
-            <!-- Header with warning icon -->
-            <div class="bg-gradient-to-r from-red-500 to-orange-500 p-4 text-white">
-                <div class="flex items-center justify-center">
-                    <i class="fas fa-exclamation-triangle text-4xl mr-3"></i>
-                    <h2 class="text-2xl font-bold">Invitation Rejected</h2>
-                </div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="p-6">
-                <!-- Rejection Message -->
-                <div class="mb-6 text-center">
-                    <h3 class="text-xl font-bold mb-2">Access Denied</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Your invitation has been rejected.
-                    </p>
+    <!-- Accepted Invitation - Modern Badge Design -->
+    <div *ngIf="invitation.etat.toLocaleLowerCase()==='acceptee'" class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900 flex items-center justify-center p-4">
+        <div class="relative w-full max-w-sm">
+            <!-- Floating Elements for Visual Interest -->
+            <div class="absolute -top-4 -right-4 w-24 h-24 bg-blue-400/20 rounded-full blur-xl"></div>
+            <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-indigo-400/15 rounded-full blur-2xl"></div>
+            
+            <!-- Main Badge Card -->
+            <div class="relative bg-white/80 dark:bg-slate-800/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 dark:border-slate-700/50 overflow-hidden transform transition-all hover:scale-[1.02] hover:shadow-3xl">
+                
+                <!-- Header with Dynamic Gradient -->
+                <div class="relative bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 p-6 text-white overflow-hidden">
+                    <!-- Animated Background Pattern -->
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
                     
+                    <div class="relative flex justify-between items-center">
+                        <div>
+                            <h2 class="text-2xl font-bold tracking-tight">Visitor Pass</h2>
+                            <p class="text-blue-100 text-sm font-medium">Digital Access Badge</p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                            <span class="text-green-100 text-xs font-semibold">ACTIVE</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Footer -->
-            <div class="bg-gray-50 dark:bg-gray-700 p-4 text-center text-xs text-gray-500 dark:text-gray-400">
-                <p>© 2024 Event Management System</p>
+                <!-- Main Content -->
+                <div class="p-4">
+                    <!-- Visitor Profile Section -->
+                    <div class="text-center mb-4">
+                        
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">
+                            {{invitation.visiteurDto.nom}}
+                        </h3>
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-xs font-medium">
+                            <i class="fas fa-check-circle mr-1"></i>
+                            Verified Guest
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center p-2 bg-slate-50 dark:bg-slate-700/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                            <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3 shadow-md">
+                                <i class="fas fa-phone text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wide font-semibold">Phone</p>
+                                <p class="text-slate-800 dark:text-slate-200 font-medium text-sm">{{invitation.visiteurDto.phone}}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center p-2 bg-slate-50 dark:bg-slate-700/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                            <div class="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center mr-3 shadow-md">
+                                <i class="fas fa-envelope text-white text-xs"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wide font-semibold">Email</p>
+                                <p class="text-slate-800 dark:text-slate-200 font-medium truncate text-sm">{{invitation.visiteurDto.email}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QR Code Section -->
+                    <div class="text-center mb-4">
+                        <p class="text-slate-600 dark:text-slate-300 text-sm font-medium mb-3">Scan for Entry</p>
+                        <div class="inline-block p-3 bg-white dark:bg-slate-700 rounded-2xl shadow-lg hover:shadow-xl transition-all border-2 border-slate-100 dark:border-slate-600">
+                            <qrcode [qrdata]="qrCodeValue" [width]="140" [errorCorrectionLevel]="'M'" class="rounded-lg"></qrcode>
+                        </div>
+                    </div>
+
+                    <!-- Validity Info -->
+                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-3 border border-green-200 dark:border-green-800">
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-calendar-check text-green-600 dark:text-green-400 mr-2 text-sm"></i>
+                            <span class="text-green-800 dark:text-green-200 font-semibold text-xs">
+                                Valid until: {{invitation.evenementDto.dateEvenement | date:'dd/MM/yyyy'}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="bg-slate-50/50 dark:bg-slate-800/50 p-4 text-center border-t border-slate-200 dark:border-slate-700">
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        © 2024 Yassine Ouabou • Secure Digital Access
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 
-   
+    <!-- Rejected Invitation - Modern Error State -->
+    <div *ngIf="invitation.etat.toLocaleLowerCase()==='rejetee'" class="min-h-screen bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 dark:from-red-900/20 dark:via-orange-900/20 dark:to-yellow-900/20 flex items-center justify-center p-4">
+        <div class="relative w-full max-w-md">
+            <!-- Floating Warning Elements -->
+            <div class="absolute -top-4 -right-4 w-24 h-24 bg-red-400/20 rounded-full blur-xl"></div>
+            <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-orange-400/15 rounded-full blur-2xl"></div>
+            
+            <!-- Main Error Card -->
+            <div class="relative bg-white/80 dark:bg-slate-800/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-red-200/30 dark:border-red-800/30 overflow-hidden">
+                
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-red-500 via-red-600 to-orange-500 p-6 text-white text-center">
+                    <div class="w-16 h-16 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-exclamation-triangle text-3xl animate-pulse"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Access Denied</h2>
+                    <p class="text-red-100 opacity-90">Invitation Status: Rejected</p>
+                </div>
 
+                <!-- Content -->
+                <div class="p-8 text-center">
+                    <div class="mb-6">
+                        <div class="w-20 h-20 bg-red-100 dark:bg-red-900/30 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-ban text-red-500 dark:text-red-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">
+                            Invitation Rejected
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Unfortunately, your invitation request has been declined. Please contact the event organizer for more information.
+                        </p>
+                    </div>
 
+                    <!-- Action Button -->
+                    <div class="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4">
+                        <button class="w-full bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Contact Support
+                        </button>
+                    </div>
+                </div>
 
-    
+                <!-- Footer -->
+                <div class="bg-slate-50/50 dark:bg-slate-800/50 p-4 text-center border-t border-slate-200 dark:border-slate-700">
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        © 2024 Event Management System
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-
- 

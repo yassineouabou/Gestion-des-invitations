@@ -13,6 +13,7 @@ export class ResponseComponent implements OnInit {
   status:string="";
   invitationId!:number;
   invitation!:InvitationDto;
+  qrCodeValue:string='https://example.com/invitation/123';;
 
   constructor(private route:ActivatedRoute,
     private invitationService:InvitationService

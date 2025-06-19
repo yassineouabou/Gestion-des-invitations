@@ -25,13 +25,13 @@
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                        <tbody *ngIf="invitationEnAttent" class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
                             <!-- Pending Rows -->
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">Jean Dupont</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">jean.dupontemail.com</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">Conférence Tech</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">15/06/2025</td>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" *ngFor="let invitation of invitationEnAttent">
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">{{invitation.visiteurDto.nom}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">{{invitation.visiteurDto.email}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">{{invitation.evenementDto.titre}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">{{invitation.evenementDto.dateEvenement|date:'dd/MM/yyyy'}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
                                         En attente
@@ -39,13 +39,17 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex space-x-2">
-                                        <button class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded hover:bg-green-200 dark:hover:bg-green-800 transition-colors text-sm font-medium">
-                                            <i class="pi pi-check mr-1"></i>
-                                            Accepter
+                                        <button class="px-2 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded hover:bg-green-200 dark:hover:bg-green-800 transition-colors text-sm font-medium">
+                                            <i class="pi pi-check"></i>
+                                           
                                         </button>
-                                        <button class="px-3 py-1 bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 rounded hover:bg-red-200 dark:hover:bg-red-800 transition-colors text-sm font-medium">
-                                            <i class="pi pi-times mr-1"></i>
-                                            Rejeter
+                                        <button class="px-2 py-1 bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 rounded hover:bg-red-200 dark:hover:bg-red-800 transition-colors text-sm font-medium">
+                                            <i class="pi pi-times"></i>
+                                           
+                                        </button>
+                                        <button class="px-2 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 rounded hover:bg-yellow-200 dark:hover:bg-yellow-800 transition-colors text-sm font-medium">
+                                            <i class="pi pi-envelope"></i>
+                                           
                                         </button>
                                     </div>
                                 </td>
@@ -62,13 +66,11 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex space-x-2">
-                                        <button class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded hover:bg-green-200 dark:hover:bg-green-800 transition-colors text-sm font-medium">
-                                            <i class="pi pi-check mr-1"></i>
-                                            Accepter
+                                        <button class="px-2 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded hover:bg-green-200 dark:hover:bg-green-800 transition-colors text-sm font-medium">
+                                            <i class="pi pi-check "></i>                                          
                                         </button>
-                                        <button class="px-3 py-1 bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 rounded hover:bg-red-200 dark:hover:bg-red-800 transition-colors text-sm font-medium">
-                                            <i class="pi pi-times mr-1"></i>
-                                            Rejeter
+                                        <button class="px-2 py-1 bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 rounded hover:bg-red-200 dark:hover:bg-red-800 transition-colors text-sm font-medium">
+                                            <i class="pi pi-times "></i>     
                                         </button>
                                     </div>
                                 </td>
@@ -102,24 +104,13 @@
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Statut</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                        <tbody  class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
                             <!-- Accepted Rows -->
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">Marie Martin</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">marie.martinentreprise.com</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">Salon Professionnel</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">14/06/2025</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                                        Accepté
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">Thomas Leroy</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">t.leroystartup.fr</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">Conférence Tech</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">13/06/2025</td>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" *ngFor="let invitationAcept of invitationAcepter">
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">{{invitationAcept.visiteurDto.nom}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">{{invitationAcept.visiteurDto.email}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">{{invitationAcept.evenementDto.titre}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">{{invitationAcept.evenementDto.dateEvenement|date:'dd/MM/yyyy'}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
                                         Accepté
@@ -157,6 +148,17 @@
                         </thead>
                         <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
                             <!-- Rejected Rows -->
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" *ngFor="let invitationAcept of invitationAcepter">
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">{{invitationAcept.visiteurDto.nom}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">{{invitationAcept.visiteurDto.email}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">{{invitationAcept.evenementDto.titre}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">{{invitationAcept.evenementDto.dateEvenement|date:'dd/MM/yyyy'}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                                         Rejeté
+                                    </span>
+                                </td>
+                            </tr>
                             <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
                                 <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">Pierre Dubois</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">pierre.duboismail.com</td>
@@ -211,11 +213,11 @@
                         </thead>
                         <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
                             <!-- Rejected Rows -->
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">Pierre Dubois</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">pierre.duboismail.com</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">Conférence Tech</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">12/06/2025</td>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" *ngFor="let inv of invitationEnvoyer">
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-gray-100">{{inv.visiteurDto.nom}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">{{inv.visiteurDto.email}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">{{inv.evenementDto.titre}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-gray-600 dark:text-gray-400">{{inv.evenementDto.dateEvenement|date:'dd/MM/yyyy'}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
                                         Rejeté

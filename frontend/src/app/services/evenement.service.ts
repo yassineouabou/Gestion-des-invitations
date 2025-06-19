@@ -29,7 +29,7 @@ export class EvenementService {
 
   getAllEvenement():Observable<EvenementDto[]>{
     const organisateurId = this.authService.getOrganisateurId();
-     return this.http.get<EvenementDto[]>(this.api+"/organisateur/"+organisateurId);
+    return this.http.get<EvenementDto[]>(this.api+"/organisateur/"+organisateurId);
   }
 
   updateEvenement(evenement:EvenementDto,evenementId:number):Observable<void>{

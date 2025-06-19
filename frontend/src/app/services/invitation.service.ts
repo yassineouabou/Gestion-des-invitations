@@ -30,7 +30,7 @@ export class InvitationService {
   }
 
   rejeter(id:number):Observable<InvitationDto>{
-    return this.http.get<InvitationDto>(this.api+"rejeter/"+id);
+    return this.http.get<InvitationDto>(this.api+"refuser/"+id);
   }
 
 

@@ -16,6 +16,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { VisiteurComponent } from './components/visiteur/visiteur.component';
 import { InvitationComponent } from './components/invitation/invitation.component';
+import { ResponseComponent } from './components/response/response.component';
 
 
 
@@ -30,7 +31,8 @@ import { InvitationComponent } from './components/invitation/invitation.componen
     RegisterComponent,
     InscriptionComponent,
     VisiteurComponent,
-    InvitationComponent
+    InvitationComponent,
+    ResponseComponent
 
   ],
   imports: [

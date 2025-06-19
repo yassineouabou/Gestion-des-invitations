@@ -11,7 +11,8 @@ namespace api.Mappers
             {
                 Id = visiteur.Id,
                 Nom = visiteur.Nom,
-                Email = visiteur.Email
+                Email = visiteur.Email,
+                Phone = visiteur.Phone
             };
         }
 

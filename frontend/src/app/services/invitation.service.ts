@@ -24,4 +24,18 @@ export class InvitationService {
   sendEmail(id:number):Observable<void>{
     return this.http.get<void>(this.api+"envoyer-email/"+id);
   }
+
+  accepter(id:number):Observable<InvitationDto>{
+    return this.http.get<InvitationDto>(this.api+"accepter/"+id);
+  }
+
+  rejeter(id:number):Observable<InvitationDto>{
+    return this.http.get<InvitationDto>(this.api+"rejeter/"+id);
+  }
+
+
+  getInvitation(id:number):Observable<InvitationDto>{
+    return this.http.get<InvitationDto>(this.api+"/"+id);
+  }
+
 }

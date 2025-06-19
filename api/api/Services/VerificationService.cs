@@ -48,8 +48,12 @@ namespace api.Services
             var verification = await verificationRepository.getById(id);
             if (verification == null)
                 return null;
-            verification.Etat = StatutVerification.REFUSEE;
-            await verificationRepository.saveChange(verification);
+            if (verification.Etat == StatutVerification.EN_ATTENTE)
+            {
+                verification.Etat = StatutVerification.REFUSEE;
+                await verificationRepository.saveChange(verification);
+            }
+            
             return verification;
         }
 
@@ -58,11 +62,19 @@ namespace api.Services
             var verification = await verificationRepository.getById(id);
             if (verification == null)
                 return null;
-            verification.Etat = StatutVerification.ACCEPTEE;
-            verification.Evenement.Participantes = +1;
-            await verificationRepository.saveChange(verification);
+            if (verification.Etat == StatutVerification.EN_ATTENTE)
+            {
+                verification.Etat = StatutVerification.ACCEPTEE;
+                verification.Evenement.Participantes = +1;
+                await verificationRepository.saveChange(verification);
+            }
+            
             return verification;
         }
 
+        public Task<Verification?> getById(long id)
+        {
+            return verificationRepository.getById(id);
+        }
     }
 }

@@ -52,12 +52,7 @@ namespace api.Controllers
             if (verification == null)
                 return NotFound("Vérification non trouvée.");
 
-            return Ok(new
-            {
-                Message = "Invitation acceptée avec succès.",
-                VerificationId = verification.Id,
-                Statut = verification.Etat.ToString()
-            });
+            return Ok(verification.fromVerification());
         }
 
         [HttpGet("refuser/{id:long}")]
@@ -68,14 +63,20 @@ namespace api.Controllers
             if (verification == null)
                 return NotFound("Vérification non trouvée.");
 
-            return Ok(new
-            {
-                Message = "Invitation refusée.",
-                VerificationId = verification.Id,
-                Statut = verification.Etat.ToString()
-            });
+            return Ok(verification.fromVerification());
         }
 
+
+        [HttpGet("{id:long}")]
+        public async Task<IActionResult> getById(long id)
+        {
+            var verification = await verificationService.getById(id);
+
+            if (verification == null)
+                return NotFound("Vérification non trouvée.");
+
+            return Ok(verification.fromVerification());
+        }
 
     }
 }

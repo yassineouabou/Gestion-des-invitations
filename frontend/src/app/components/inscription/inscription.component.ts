@@ -16,7 +16,7 @@ export class InscriptionComponent implements OnInit{
 
   evenementId!: number;
   evenement!:EvenementDto;
-   inscriptionForm!: FormGroup;
+  inscriptionForm!: FormGroup;
 
   constructor(private route: ActivatedRoute,
     private evenementService:EvenementService,
@@ -28,8 +28,6 @@ export class InscriptionComponent implements OnInit{
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.evenementId = +params['evenementId'];
-      console.log(this.evenementId);
-
       this.evenementService.getEvenementById(this.evenementId).subscribe({
         next:(data)=>{
           this.evenement = data;

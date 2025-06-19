@@ -34,7 +34,7 @@ export class InvitationComponent implements OnInit{
         this.invitations = data;
         this.invitationEnAttent = this.invitations.filter(invitation=>invitation.etat==="EN_ATTENTE");
         this.invitationAcepter = this.invitations.filter(invitation=>invitation.etat==="ACCEPTEE");
-        this.invitationReject = this.invitations.filter(invitation=>invitation.etat==="EN_ATTENTE");
+        this.invitationReject = this.invitations.filter(invitation=>invitation.etat==="REFUSEE");
         this.invitationEnvoyer = this.invitations.filter(invitation=>invitation.etat==="ENVOYE");
 
         console.log(this.invitationEnAttent)

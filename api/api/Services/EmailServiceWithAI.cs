@@ -37,8 +37,8 @@ namespace api.Services
     $"\r\n- Date : {verification.Evenement.DateEvenement}  " +
     $"\r\n- Lieu : {verification.Evenement.Lieu}  " +
     $"\r\n- Liens d'action :  " +
-    $"\r\n  - Lien \"Accepter\" : http://localhost....  " +
-    $"\r\n  - Lien \"Refuser\" : http://localhost:SSQSQS " +
+    $"\r\n  - Lien \"Accepter\" : http://localhost:4200/response?invitationId={verification.Id}&status=acceptee " +
+    $"\r\n  - Lien \"Refuser\" : http://localhost:4200/response?invitationId={verification.Id}&status=rejetee" +
     $"\r\n\r\nConsignes : " +
     $"\r\n1. Format : Corps de message uniquement (pas d'objet, pas de signature).  " +
     $"\r\n2. Style : Courtois, neutre et professionnel.  " +

@@ -48,7 +48,7 @@ namespace api.Services
             var verification = await verificationRepository.getById(id);
             if (verification == null)
                 return null;
-            if (verification.Etat == StatutVerification.EN_ATTENTE)
+            if (verification.Etat == StatutVerification.ENVOYE)
             {
                 verification.Etat = StatutVerification.REFUSEE;
                 await verificationRepository.saveChange(verification);
@@ -62,7 +62,7 @@ namespace api.Services
             var verification = await verificationRepository.getById(id);
             if (verification == null)
                 return null;
-            if (verification.Etat == StatutVerification.EN_ATTENTE)
+            if (verification.Etat == StatutVerification.ENVOYE)
             {
                 verification.Etat = StatutVerification.ACCEPTEE;
                 verification.Evenement.Participantes = +1;

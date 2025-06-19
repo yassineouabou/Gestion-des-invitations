@@ -1,3 +1,7 @@
+<p-toast />
+ <p-confirmPopup />
+ 
+
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
     <!-- Header -->
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
@@ -58,7 +62,7 @@
                                             <i class="pi pi-times"></i>
                                            
                                         </button>
-                                        <button class="px-2 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 rounded hover:bg-yellow-200 dark:hover:bg-yellow-800 transition-colors text-sm font-medium">
+                                        <button (click)="confirmEmailSend($event, invitation.id)" class="px-2 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 rounded hover:bg-yellow-200 dark:hover:bg-yellow-800 transition-colors text-sm font-medium">
                                             <i class="pi pi-envelope"></i>
                                            
                                         </button>
@@ -218,4 +222,8 @@
         </p-tabPanel>
 
     </p-tabView>
+</div>
+
+<div *ngIf="isSended" class="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-60">
+    <p-progressSpinner ariaLabel="loading" />
 </div>

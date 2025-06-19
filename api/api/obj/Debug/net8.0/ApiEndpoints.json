@@ -264,7 +264,7 @@
     "ContainingType": "api.Controllers.VerificationController",
     "Method": "EnvoyerEmail",
     "RelativePath": "api/Verification/envoyer-email/{id}",
-    "HttpMethod": "POST",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [

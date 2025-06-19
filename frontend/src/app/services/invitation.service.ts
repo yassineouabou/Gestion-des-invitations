@@ -20,4 +20,8 @@ export class InvitationService {
     const organisateurId = this.authService.getOrganisateurId();
     return this.http.get<InvitationDto[]>(this.api+"organisateur/"+organisateurId);
   }
+
+  sendEmail(id:number):Observable<void>{
+    return this.http.get<void>(this.api+"envoyer-email/"+id);
+  }
 }

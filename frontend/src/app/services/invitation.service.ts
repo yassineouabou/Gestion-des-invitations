@@ -38,4 +38,9 @@ export class InvitationService {
     return this.http.get<InvitationDto>(this.api+"/"+id);
   }
 
+  getByOrganisateurId():Observable<InvitationDto[]>{
+    const organisateurId = this.authService.getOrganisateurId();
+    return this.http.get<InvitationDto[]>(this.api+"organisateur/"+organisateurId);
+  }
+
 }

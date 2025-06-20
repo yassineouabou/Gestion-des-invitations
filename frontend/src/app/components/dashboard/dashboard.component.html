@@ -1,64 +1,101 @@
-<div class="space-y-8">
-  <!-- Welcome Message -->
-      <div class="bg-gradient-to-r from-primary-500 to-primary-600 text-white p-6 rounded-xl shadow-lg animate-fade-in">
-        <h1 class="text-2xl md:text-3xl font-bold mb-1">Bienvenue, {{organisateur.nom}} 👋</h1>
-        <p class="text-sm md:text-base opacity-90">Voici un aperçu de votre activité récente.</p>
+
+<div class=" bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 ">
+  <div class="max-w-7xl mx-auto space-y-3">
+    <!-- Welcome Message -->
+    <div class="relative overflow-hidden bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 text-white p-4 rounded-2xl shadow-2xl">
+      <div class="absolute inset-0 bg-black/10"></div>
+      <div class="absolute -top-4 -right-4 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+      <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+      <div class="relative z-10">
+        <div class="flex items-center space-x-3 mb-2">
+          <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+            <span class="text-2xl">👋</span>
+          </div>
+          <h1 class="text-2xl md:text-2xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text">
+            Bienvenue, {{organisateur.nom}}
+          </h1>
+        </div>
+        <p class="text-blue-100  font-medium">
+          Voici un aperçu de votre activité récente et de vos performances.
+        </p>
+      </div>
+    </div>
+
+    <!-- Stat Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Events Card -->
+      <div *ngIf="evenements" class="group relative bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 hover:border-blue-200/50 hover:-translate-y-1">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center space-x-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 p-3 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <lucide-icon name="Calendar" class="w-6 h-6 text-white"></lucide-icon>
+              </div>
+              <div>
+                <h3 class="text-gray-600 text-sm font-medium uppercase tracking-wide">Événements</h3>
+                <p class="text-3xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{{evenements.length}}</p>
+              </div>
+            </div>
+            <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+          </div>
+          <div class="text-xs text-gray-500 bg-blue-50 px-3 py-1 rounded-full inline-block">
+            Événements actifs
+          </div>
+        </div>
       </div>
 
-  <!-- Stat Cards -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-    <div class="bg-white p-5 rounded-xl shadow hover:shadow-md transition">
-      <div class="flex items-center space-x-4">
-        <div class="bg-blue-100 p-3 rounded-full">
-          <lucide-icon name="Calendar" class="w-6 h-6 text-blue-600"></lucide-icon>
+      <!-- Invitations Card -->
+      <div *ngIf="invitations" class="group relative bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 hover:border-emerald-200/50 hover:-translate-y-1">
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-50/50 to-green-50/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center space-x-4">
+              <div class="bg-gradient-to-br from-emerald-500 to-green-600 p-3 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <lucide-icon name="Mail" class="w-6 h-6 text-white"></lucide-icon>
+              </div>
+              <div>
+                <h3 class="text-gray-600 text-sm font-medium uppercase tracking-wide">Invitations</h3>
+                <p class="text-3xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">{{invitations.length}}</p>
+              </div>
+            </div>
+            <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+          </div>
+          <div class="text-xs text-gray-500 bg-emerald-50 px-3 py-1 rounded-full inline-block">
+            Invitations envoyées
+          </div>
         </div>
-        <div>
-          <h3 class="text-gray-600 text-sm">Événements</h3>
-          <p class="text-lg font-semibold text-gray-900">12</p>
+      </div>
+
+      <!-- Visitors Card -->
+      <div class="group relative bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 hover:border-amber-200/50 hover:-translate-y-1">
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-50/50 to-orange-50/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center space-x-4">
+              <div class="bg-gradient-to-br from-amber-500 to-orange-600 p-3 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <lucide-icon name="Users" class="w-6 h-6 text-white"></lucide-icon>
+              </div>
+              <div>
+                <h3 class="text-gray-600 text-sm font-medium uppercase tracking-wide">Visiteurs</h3>
+                <p class="text-3xl font-bold text-gray-900 group-hover:text-amber-600 transition-colors">{{nbrVisiteur}}</p>
+              </div>
+            </div>
+            <div class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></div>
+          </div>
+          <div class="text-xs text-gray-500 bg-amber-50 px-3 py-1 rounded-full inline-block">
+            Visiteurs total
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="bg-white p-5 rounded-xl shadow hover:shadow-md transition">
-      <div class="flex items-center space-x-4">
-        <div class="bg-green-100 p-3 rounded-full">
-          <lucide-icon name="Mail" class="w-6 h-6 text-green-600"></lucide-icon>
-        </div>
-        <div>
-          <h3 class="text-gray-600 text-sm">Invitations</h3>
-          <p class="text-lg font-semibold text-gray-900">45</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white p-5 rounded-xl shadow hover:shadow-md transition">
-      <div class="flex items-center space-x-4">
-        <div class="bg-yellow-100 p-3 rounded-full">
-          <lucide-icon name="Users" class="w-6 h-6 text-yellow-600"></lucide-icon>
-        </div>
-        <div>
-          <h3 class="text-gray-600 text-sm">Visiteurs</h3>
-          <p class="text-lg font-semibold text-gray-900">76</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white p-5 rounded-xl shadow hover:shadow-md transition">
-      <div class="flex items-center space-x-4">
-        <div class="bg-red-100 p-3 rounded-full">
-          <lucide-icon name="FileText" class="w-6 h-6 text-red-600"></lucide-icon>
-        </div>
-        <div>
-          <h3 class="text-gray-600 text-sm">Reports</h3>
-          <p class="text-lg font-semibold text-gray-900">5</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Optional Section for Charts or Recent Activity -->
-  <div class="bg-white p-6 rounded-xl shadow">
-    <h2 class="text-xl font-semibold mb-4">Activité récente</h2>
-    <p class="text-gray-500 text-sm">Aucune activité récente pour le moment.</p>
-  </div>
+    <!-- Optional Section for Charts or Recent Activity -->
+  <div *ngIf="evenements" class="bg-white rounded-xl shadow ">
+    <div class="chart-container">
+  <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
 </div>
+  </div>
+
+</div>
+

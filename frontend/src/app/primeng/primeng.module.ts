@@ -15,6 +15,8 @@ import { SliderModule } from 'primeng/slider';
 import { CalendarModule } from 'primeng/calendar';
 import { TabViewModule } from 'primeng/tabview';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ChartModule } from 'primeng/chart';
+
 
 const PRIMENG = [
   DialogModule,
@@ -37,7 +39,8 @@ const PRIMENG = [
   CalendarModule,
   ConfirmPopupModule,
   TabViewModule,
-  ProgressSpinnerModule
+  ProgressSpinnerModule,
+  ChartModule
   
   
 ]

@@ -211,7 +211,15 @@
       class="w-full mt-2 mb-3 p-2 border rounded-md text-sm text-gray-800 bg-gray-100"
     />
     
-    <div class="flex justify-end">
+    <div class="flex justify-between items-center">
+      <p-button 
+        label="Copier le lien" 
+        icon="pi pi-copy"
+        (onClick)="copyLink()" 
+        styleClass="p-button-info"
+        class="!px-4 !py-2 text-sm"
+      />
+      
       <p-button 
         label="Fermer" 
         (onClick)="visibleLien = false" 
@@ -221,3 +229,4 @@
     </div>
   </div>
 </p-dialog>
+

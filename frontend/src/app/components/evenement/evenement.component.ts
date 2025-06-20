@@ -145,4 +145,20 @@ export class EvenementComponent implements OnInit {
     this.registrationLink = link;
     this.visibleLien = true;
   }
+
+  copyLink() {
+    if (this.registrationLink) {
+      navigator.clipboard.writeText(this.registrationLink)
+        .then(() => {
+          // Optionnel : afficher une notification
+          this.visibleLien = false;
+        })
+        .catch(err => {
+          console.error('Erreur lors de la copie : ', err);
+        });
+    }
+  }
+
+
+
 }

@@ -11,4 +11,16 @@
     }
 
 
-/* Dans dashboard.component.css */
+/* Conteneur du graphique */
+.chart-container {
+  height: 400px !important; /* Hauteur fixe */
+  width: 100%;
+  position: relative;
+}
+
+/* Ou pour une hauteur responsive */
+.chart-container {
+  height: 50vh !important; /* 50% de la hauteur de la fenêtre */
+  width: 100%;
+  position: relative;
+}

@@ -150,17 +150,9 @@ export class DashboardComponent implements OnInit{
     this.basicOptions = {
       responsive: true,
       maintainAspectRatio: false, // Permet de contrôler la hauteur via CSS
-      aspectRatio: 0.8, // Ratio plus petit = graphique plus haut
+      aspectRatio: 0.7, // Ratio plus petit = graphique plus haut
       plugins: {
-        title: {
-          display: true,
-          text: 'Participants par Événement',
-          color: textColor,
-          font: {
-            size: 16,
-            weight: 'bold'
-          }
-        },
+        
         legend: {
           display: true,
           labels: {

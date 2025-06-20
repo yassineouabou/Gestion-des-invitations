@@ -1,0 +1,9 @@
+::ng-deep .custom-tabview .p-tabview-nav li.p-highlight .tab-title {
+  color: #0ea5e9; /* ex: bleu clair */
+  font-weight: bold;
+}
+
+/* optionnel : changer le fond du conteneur */
+::ng-deep .custom-tabview .p-tabview-nav li.p-highlight .tab-header {
+  background-color: #f0f9ff; /* clair pour thème light */
+}

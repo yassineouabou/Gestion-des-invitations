@@ -79,69 +79,10 @@ export class InvitationComponent implements OnInit{
   }
 
 
-  accepter(event: Event, id: number) {
-  this.invitationId= id;
-  this.confirmationService.confirm({
-    target: event.target as EventTarget,
-    message: 'Voulez-vous vraiment accpeter cette invitation ?',
-    header: 'Confirmation',
-    icon: 'pi pi-exclamation-triangle',
-    acceptButtonStyleClass: 'bg-red-600 hover:bg-red-700 text-white mx-2 px-4 py-2 rounded-md text-sm',
-    rejectButtonStyleClass: 'bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-md text-sm ml-2',
-    
-    accept: () => {
-        if (this.invitationId !== null) {
-          
-          this.invitationService.accepter(this.invitationId).subscribe({
-            next: () => {
-              this.loadData();
-              this.isSended=false;
-              this.messageService.add({ severity: 'success', summary: 'Envoyé', detail: 'invitation accepter avec succès', life: 3000 });   
-            },
-            error: (err) => {
-              this.messageService.add({ severity: 'error', summary: 'Erreur', detail: "erreur", life: 3000 });
-            }
-          });
-        }
-      },
-      reject: () => {
-        this.messageService.add({ severity: 'info', summary: 'Annulé', detail: 'Acceptation annulé', life: 3000 });
-      }
-    });
-  }
+  
 
 
-  rejeter(event: Event, id: number) {
-  this.invitationId= id;
-  this.confirmationService.confirm({
-    target: event.target as EventTarget,
-    message: 'Voulez-vous vraiment accpeter cette invitation ?',
-    header: 'Confirmation',
-    icon: 'pi pi-exclamation-triangle',
-    acceptButtonStyleClass: 'bg-red-600 hover:bg-red-700 text-white mx-2 px-4 py-2 rounded-md text-sm',
-    rejectButtonStyleClass: 'bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-md text-sm ml-2',
-    
-    accept: () => {
-        if (this.invitationId !== null) {
-          
-          this.invitationService.accepter(this.invitationId).subscribe({
-            next: () => {
-              this.loadData();
-              this.isSended=false;
-              this.messageService.add({ severity: 'success', summary: 'Envoyé', detail: 'invitation rejeter avec succès', life: 3000 });   
-            },
-            error: (err) => {
-              this.messageService.add({ severity: 'error', summary: 'Erreur', detail: "erreur", life: 3000 });
-            }
-          });
-        }
-      },
-      reject: () => {
-        this.messageService.add({ severity: 'info', summary: 'Annulé', detail: 'Rejection annulé', life: 3000 });
-      }
-    });
-  }
-
+  
 
 
 }

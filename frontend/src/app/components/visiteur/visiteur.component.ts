@@ -51,17 +51,23 @@ export class VisiteurComponent implements OnInit {
 
   
 
-  deleteVisiteur(visiteur: VisiteurDto): void {
-    this.confirmationService.confirm({
-      message: `Êtes-vous sûr de vouloir supprimer le visiteur "${visiteur.id}" ?`,
-      header: 'Confirmer la suppression',
-      icon: 'pi pi-exclamation-triangle',
-      acceptButtonStyleClass: 'p-button-danger',
-      accept: () => {
-        this.performDelete(visiteur);
-      }
-    });
-  }
+  confirmDelete(event:Event,visiteur:VisiteurDto) {
+  this.confirmationService.confirm({
+    target: event.target as EventTarget,
+    message: 'Voulez-vous vraiment supprimer cet visiter ?',
+    header: 'Confirmation',
+    icon: 'pi pi-exclamation-triangle',
+    acceptButtonStyleClass: 'bg-red-600 hover:bg-red-700 text-white mx-2 px-4 py-2 rounded-md text-sm',
+    rejectButtonStyleClass: 'bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-md text-sm ml-2',
+    
+    accept: () => {
+      this.performDelete(visiteur);
+    },
+    reject: () => {
+      this.messageService.add({ severity: 'info', summary: 'Annulé', detail: 'Suppression annulée', life: 3000 });
+    }
+  });
+}
 
   private performDelete(visiteur: VisiteurDto): void {
     this.visiteurService.deleteVisiteur(visiteur.id).subscribe({

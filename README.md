@@ -10,7 +10,6 @@ Une application web permettant aux organisateurs de créer des événements, env
 - **Frontend** : Angular 18, Tailwind Css
 - **Base de données** : SQL Server
 - **Conteneurisation** : Docker, Docker Compose
-- **Sécurité** : JWT Authentication
 - **Email/Génération** : Deepseek API
 
 ---

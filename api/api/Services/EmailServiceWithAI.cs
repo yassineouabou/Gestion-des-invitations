@@ -38,7 +38,7 @@ namespace api.Services
     $"\r\n- Lieu : {verification.Evenement.Lieu}  " +
     $"\r\n- Liens d'action :  " +
     $"\r\n  - Lien \"Accepter\" : http://localhost:4200/response?invitationId={verification.Id}&status=acceptee " +
-    $"\r\n  - Lien \"Refuser\" : http://localhost:4200/response?invitationId={verification.Id}&status=refuseeoi" +
+    $"\r\n  - Lien \"Refuser\" : http://localhost:4200/response?invitationId={verification.Id}&status=refusee" +
     $"\r\n\r\nConsignes : " +
     $"\r\n1. Format : Corps de message uniquement (pas d'objet, pas de signature).  " +
     $"\r\n2. Style : Courtois, neutre et professionnel.  " +
@@ -72,12 +72,17 @@ namespace api.Services
 
             try
             {
+
                 using (var message = new MailMessage(fromAddress, toAddress)
                 {
                     Subject = subject,
                     Body = aiContent
                 })
                 {
+                    Console.WriteLine("Running in Docker: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription);
+                    Console.WriteLine($"From: {_fromEmail}");
+                    Console.WriteLine($"Password (length): {_fromPassword.Length}");
+
                     await smtp.SendMailAsync(message);
                     return true;
                 }
@@ -85,6 +90,8 @@ namespace api.Services
             catch (Exception ex)
             {
                 Console.WriteLine("Erreur d’envoi : " + ex.Message);
+                if (ex.InnerException != null)
+                    Console.WriteLine("Détail : " + ex.InnerException.Message);
                 return false;
             }
         }

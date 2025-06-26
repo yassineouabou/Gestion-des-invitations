@@ -59,7 +59,7 @@ namespace api.Migrations
 
                     b.HasIndex("OrganisateurId");
 
-                    b.ToTable("Evenements");
+                    b.ToTable("Evenements", (string)null);
                 });
 
             modelBuilder.Entity("api.Models.Organisateur", b =>
@@ -84,7 +84,7 @@ namespace api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("organisateurs");
+                    b.ToTable("organisateurs", (string)null);
                 });
 
             modelBuilder.Entity("api.Models.Verification", b =>
@@ -110,7 +110,7 @@ namespace api.Migrations
 
                     b.HasIndex("VisiteurId");
 
-                    b.ToTable("Verifications");
+                    b.ToTable("Verifications", (string)null);
                 });
 
             modelBuilder.Entity("api.Models.Visiteur", b =>
@@ -135,7 +135,7 @@ namespace api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Visiteurs");
+                    b.ToTable("Visiteurs", (string)null);
                 });
 
             modelBuilder.Entity("api.Models.Evenement", b =>

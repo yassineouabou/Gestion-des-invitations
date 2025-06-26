@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EvenementService } from '../../services/evenement.service';
 import { EvenementDto } from '../../models/Evenement.model';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-evenement',
@@ -158,6 +160,26 @@ export class EvenementComponent implements OnInit {
         });
     }
   }
+
+  exportCSV() {
+    const data = this.evenements.map(evenement=>{
+      return {
+        titre:evenement.titre,
+        catzgorie:evenement.categorie,
+        date:evenement.dateEvenement,
+        lieu:evenement.lieu
+      };
+    })
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Données');
+
+    const csvBuffer = XLSX.write(workbook, { bookType: 'csv', type: 'array' });
+    const blob = new Blob([csvBuffer], { type: 'text/csv;charset=utf-8;' });
+
+    saveAs(blob, 'evenements.csv');
+  }
+
 
 
 

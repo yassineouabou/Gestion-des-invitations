@@ -41,11 +41,21 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddDbContext<AppDbContext>(
-    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-    );
+
+var dbHost = Environment.GetEnvironmentVariable("DB_HOST") ?? "db";
+var dbName = Environment.GetEnvironmentVariable("DB_NAME") ?? "gestion_invitation";
+var dbPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD") ?? "yassine@2021";
+var dbPort = Environment.GetEnvironmentVariable("DB_PORT") ?? "1433";
+
+var connectionString = $"Server={dbHost},{dbPort};Database={dbName};User Id=sa;Password={dbPassword};TrustServerCertificate=True;";
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(connectionString));
 
 
+
+//builder.Services.AddDbContext<AppDbContext>(
+//    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+//    );
 
 builder.Services.AddScoped<IOrganisateurRepository, OrganisateurRepository>();
 builder.Services.AddScoped<IOrganisateurService, OrganisateurService>();
@@ -70,12 +80,19 @@ var app = builder.Build();
 app.UseCors("AllowAngularApp");
 
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate(); // Applique les migrations automatiquement
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 app.UseHttpsRedirection();
 

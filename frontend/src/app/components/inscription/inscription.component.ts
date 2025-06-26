@@ -17,6 +17,7 @@ export class InscriptionComponent implements OnInit{
   evenementId!: number;
   evenement!:EvenementDto;
   inscriptionForm!: FormGroup;
+  isSended:boolean=true;
 
   constructor(private route: ActivatedRoute,
     private evenementService:EvenementService,
@@ -31,11 +32,14 @@ export class InscriptionComponent implements OnInit{
       this.evenementService.getEvenementById(this.evenementId).subscribe({
         next:(data)=>{
           this.evenement = data;
+          this.isSended=false;
         },
         error:(err)=>{
           console.log(err.error);
+          this.isSended=false;
         }
       })
+      
     });
 
     this.inscriptionForm = this.fb.group({

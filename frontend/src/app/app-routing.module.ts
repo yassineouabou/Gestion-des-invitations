@@ -12,22 +12,26 @@ import { InvitationComponent } from './components/invitation/invitation.componen
 import { ResponseComponent } from './components/response/response.component';
 
 const routes: Routes = [
-  {path:"login",component:LoginComponent},
-  {path:"register",component:RegisterComponent},
-  {path:"inscription",component:InscriptionComponent},
-  {path:"response",component:ResponseComponent},
-  {path:"home",component:HomeComponent,children:[
-    {path:"dashboard",component:DashboardComponent},
-    {path:"evenement",component:EvenementComponent},
-    {path:"visiteur",component:VisiteurComponent},
-    {path:"invitations",component:InvitationComponent},
-  ]},
-  {path:"",redirectTo:"/login",pathMatch:"full"}
-  
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'inscription', component: InscriptionComponent },
+  { path: 'response', component: ResponseComponent },
+  {
+    path: 'home',
+    component: HomeComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'evenement', component: EvenementComponent },
+      { path: 'visiteur', component: VisiteurComponent },
+      { path: 'invitations', component: InvitationComponent },
+    ],
+  },
+  { path: '**', redirectTo: '/login' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

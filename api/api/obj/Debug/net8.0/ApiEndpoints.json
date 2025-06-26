@@ -245,6 +245,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "api.Controllers.TestController",
+    "Method": "Get",
+    "RelativePath": "api/Test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "api.Controllers.VerificationController",
     "Method": "getById",
     "RelativePath": "api/Verification/{id}",

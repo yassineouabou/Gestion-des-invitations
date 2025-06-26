@@ -37,13 +37,7 @@ namespace api.Repository
 
         public async Task<Visiteur> save(Visiteur addedVisiteur)
         {
-            var existingVisiteur = await appDbContext.Visiteurs
-                .FirstOrDefaultAsync(v => v.Email == addedVisiteur.Email);
-
-            if (existingVisiteur != null)
-            {
-                return existingVisiteur;
-            }
+            
 
             await appDbContext.Visiteurs.AddAsync(addedVisiteur);
             await appDbContext.SaveChangesAsync();

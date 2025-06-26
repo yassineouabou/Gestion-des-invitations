@@ -1,3 +1,6 @@
+
+<p-toast />
+
 <div *ngIf="evenement!=null" class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
   <div class="w-full max-w-2xl animate-fade-in">
     <div class="bg-white rounded-xl shadow-lg overflow-hidden">
@@ -100,6 +103,10 @@
   </div>
 </div>
 
-<div *ngIf="evenement == null" class="text-xl bg-red-100 text-red-700 border border-red-400 rounded-md p-4 text-center font-semibold">
+<div *ngIf="evenement == null && !isSended" class="text-xl bg-red-100 text-red-700 border border-red-400 rounded-md p-4 text-center font-semibold">
   evenement Not Found !
+</div>
+
+<div *ngIf="isSended" class="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-60">
+    <p-progressSpinner ariaLabel="loading" />
 </div>

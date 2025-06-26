@@ -6,6 +6,14 @@
   <!-- Header + Button -->
   <div class="flex justify-between items-center mb-4">
     <h1 class="text-3xl font-semibold text-gray-900">Liste des Événements</h1>
+    <div>
+      <button
+      class="bg-green-300 mx-4 text-green-900 px-5 py-2 rounded-lg shadow-md hover:bg-green-900 hover:text-green-300 transition duration-300 font-semibold"
+      type="button"
+      (click)="exportCSV()"
+    >
+      exportCSV
+    </button>
     <button
       class="bg-blue-600 text-white px-5 py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 font-semibold"
       type="button"
@@ -13,6 +21,7 @@
     >
       + Créer un événement
     </button>
+    </div>
   </div>
 
 

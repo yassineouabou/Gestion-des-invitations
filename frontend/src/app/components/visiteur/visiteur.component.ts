@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { VisiteurService } from '../../services/visiteur.service';
 import { VisiteurDto } from '../../models/Visiteur.model';
 import { ConfirmationService, MessageService } from 'primeng/api';
-
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-visiteur',
@@ -90,5 +91,26 @@ export class VisiteurComponent implements OnInit {
     });
   }
 
+  exportCSV() {
+      const exportData = this.visiteurs.map(visiteur => {
+        return {
+          nom: visiteur.nom,
+          email: visiteur.email,
+          phone: visiteur.phone,
+          evenements: visiteur.evenements.length > 0
+            ? visiteur.evenements.map(e => e.titre).join(', ')
+            : 'Aucun'
+        };
+      });
+      const worksheet = XLSX.utils.json_to_sheet(exportData);
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, 'Données');
+  
+      const csvBuffer = XLSX.write(workbook, { bookType: 'csv', type: 'array' });
+      const blob = new Blob([csvBuffer], { type: 'text/csv;charset=utf-8;' });
+  
+      saveAs(blob, 'visiteurs.csv');
+    }
+  
 
 }
